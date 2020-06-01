@@ -33,7 +33,7 @@ input {
 
 .collapse {
     position: relative;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
     .collapse #btn {
@@ -191,8 +191,6 @@ i {
     color: #000;
 }
 
-
-
 .account input {
     font-size: 14px;
     border: 1px solid#ccc;
@@ -205,25 +203,7 @@ i {
     height: 36px;
 }
 
-.name input {
-    font-size: 14px;
-    border: 1px solid#ccc;
-    border-radius: 3px;
-    background-color: rgba(246, 245, 245, 0.849);
-    margin-top: 10px;
-    width: 126px;
-    height: 36px;
-}
 
-.date input {
-    font-size: 14px;
-    border: 1px solid#ccc;
-    border-radius: 3px;
-    background-color: rgba(246, 245, 245, 0.849);
-    margin-top: 10px;
-    width: 258px;
-    height: 36px;
-}
 
 .modal-body img {
     width: 75px;

@@ -1,4 +1,10 @@
-﻿@using MVC.Models
+﻿@model MVC.Models.Customer
+@using MVC.Models
+
+
+
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
     <a class="navbar-brand col-1" href="~/Home/Index">
         <img src="~/Assest/img/下載.png" alt="">
@@ -14,41 +20,82 @@
     <div class="col-11 collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto  ml-auto col-9">
             <li class="nav-item active">
-                <a class="nav-link" href="~/ProductList/Index">New <span class="sr-only">(current)</span></a>
+                <a class="nav-link new" href="~/ProductList/Index">New <span class="sr-only">(current)</span></a>
+
+
             </li>
+
             <li class="nav-item active">
                 <a class="nav-link" href="~/Bestsellers/Index">Bestsellers<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="~/SofasIntroduction/Index">
-                    Sofas<span class="sr-only">(current)</span>
+            <li class="nav-item active dropdown">
+                <a href="~/SofasIntroduction/Index" class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sofas
                 </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Living-Sofas And Sleeper</a>
+                    <a class="dropdown-item" href="#">Living-Sectional Sofas</a>
+                </div>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="~/ChairsIntroduction/Index">
-                    Chairs<span class="sr-only">(current)</span>
+
+
+            <li class="nav-item active dropdown">
+                <a href="~/ChairsIntroduction/Index" class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Chairs
                 </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Living-Lounge Chairs</a>
+                    <a class="dropdown-item" href="#">Living-Ottomans And Stools</a>
+                    <a class="dropdown-item" href="#">Living-Benches</a>
+                    <a class="dropdown-item" href="#">Kids-Chairs</a>
+                </div>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="~/TablesIntroduction/Index">
-                    Tables<span class="sr-only">(current)</span>
+
+
+            <li class="nav-item active dropdown">
+                <a href="~/ChairsIntroduction/Index" class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Tables
                 </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Living-Accent And Coffee Tables</a>
+                    <a class="dropdown-item" href="#">Office-Desks And Tables</a>
+                    <a class="dropdown-item" href="#">Kids-Desk And Chairs</a>
+                </div>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="~/BedsIntroduction/Index">
-                    Beds<span class="sr-only">(current)</span>
+
+            <li class="nav-item active dropdown">
+                <a href="~/ChairsIntroduction/Index" class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Beds
                 </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Bedroom-Beds</a>
+                    <a class="dropdown-item" href="#">Kids-Beds</a>
+                </div>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="~/CabinetAndDressingtableIntroduction/Index">Cabinet And Dressingtable<span class="sr-only">(current)</span></a>
+
+            <li class="nav-item active dropdown">
+                <a href="~/ChairsIntroduction/Index" class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Cabinet And Dressingtable
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Bedroom-Dressers</a>
+                    <a class="dropdown-item" href="#">Living-Bookcases</a>
+                </div>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="~/Lighting/Index">Lighting<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="~/AccessoriesIntroduction/Index">
-                    Accessories<span class="sr-only">(current)</span>
+
+            <li class="nav-item active dropdown">
+                <a href="~/ChairsIntroduction/Index" class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Accessories
                 </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Rugs</a>
+                    <a class="dropdown-item" href="#">Pillows And Cushionss</a>
+                    <a class="dropdown-item" href="#">Mirrors</a>
+                    <a class="dropdown-item" href="#">Bedding</a>
+                </div>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="~/Outlet/Index">Outlet<span class="sr-only">(current)</span></a>
@@ -89,43 +136,42 @@
 
     </div>
 </nav>
-
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
-     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <img src="~/Assest/img/下載.png" alt="">
-                <div class="account">
-                    <input class="mx-auto" type="text" placeholder="請輸入電子信箱">
-                    <input type="password" class="mx-auto" placeholder="請輸入8-14碼密碼">
-                    <input class="mx-auto" type="tel" placeholder="請輸入電話號碼">
-                </div>
-                <div class="name">
-                    <input class="mx-auto" type="text" placeholder="姓氏">
-                    <input class="mx-auto" type="text" placeholder="名">
-                </div>
-                <div class="date">
-                    <input class="mx-auto" type="date" placeholder="請選擇生日日期">
-                </div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="~/Assest/img/下載.png" alt="">
+                    <div class="account">
+                        <input class="mx-auto" type="text" placeholder="請輸入電子信箱" name="Email">
+                        <input type="password" class="mx-auto" placeholder="請輸入8-14碼密碼" name="Password">
+                        <input class="mx-auto" type="tel" placeholder="請輸入電話號碼" name="Phone">
+                        <input class="mx-auto" type="text" placeholder="姓名" name="CustomerName">
+                        <input class="mx-auto" type="date" placeholder="請選擇生日日期" name="Birthday">
+                    </div>
 
 
-                <button class=" login">註冊</button>
-                <div class="linear">
-                    <span style="white-space:pre"></span><span class="line"></span>
-                    <span style="white-space:pre"></span><span class="txt">或</span>
-                    <span style="white-space:pre"></span> <span class="line"></span>
+
+                    <button class="login" type="submit">註冊</button>
+                    <div class="linear">
+                        <span style="white-space:pre"></span><span class="line"></span>
+                        <span style="white-space:pre"></span><span class="txt">或</span>
+                        <span style="white-space:pre"></span> <span class="line"></span>
+                    </div>
+                    <div class="other">
+                        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                        @*<i class="fab fa-facebook col-4"></i>
+                            <i class="col-4 fab fa-google-plus"></i>*@
+                    </div>
+                    <div class="sign_up">
+                        <p>沒有帳號嗎?<a href="">註冊</a></p>
+                    </div>
                 </div>
-                <div class="other">
-                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-                    @*<i class="fab fa-facebook col-4"></i>
-                        <i class="col-4 fab fa-google-plus"></i>*@
-                </div>
-                <div class="sign_up">
-                    <p>沒有帳號嗎?<a href="">註冊</a></p>
-                </div>
+
             </div>
-
         </div>
     </div>
-</div>
+}
