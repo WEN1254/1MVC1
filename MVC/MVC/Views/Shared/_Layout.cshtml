@@ -1,0 +1,58 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title DLUDOT</title>
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <link href="~/Assest/css/_NavbarPartial .css" rel="stylesheet" />
+    <link href="~/Assest/css/Footer.css" rel="stylesheet" />
+    @RenderSection("topCSS", required: false)
+    @RenderSection("scripts", required: false)
+    @* 購物車Js *@
+    <script type="text/javascript">
+        //網頁載入完成時執行之function
+        $(document).ready(function () {
+            console.log("ready!");
+        });
+
+        //加入編號為productId的商品進購物車
+        function AddToCart(productId) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("AddToCart", "Cart")',
+                data: { id: productId }
+            })
+            .done(function (msg) {
+                //將回傳的購物車頁面 填入 li#Cart
+                $('div#Cart').html(msg);
+            });
+        }
+
+    </script>
+</head>
+<body>
+
+    @Html.Partial("_NavbarPartial")
+
+
+    @RenderBody()
+
+    <script src="~/Assest/js/jquery-3.4.1.min.js"></script>
+    <script src="~/Assest/js/_NavbarPartial.js"></script>
+    @Html.Partial("_FooterPartial")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    @RenderSection("endJS", required: false)
+</body>
+</html>

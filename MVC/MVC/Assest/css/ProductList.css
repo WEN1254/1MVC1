@@ -1,0 +1,129 @@
+* {
+    font-family: "Helvetica", "Arial", "LiHei Pro", "黑體-繁", "微軟正黑體", sans-serif;
+}
+
+.product_name {
+    margin: 0 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.product_name_home {
+    text-align: left;
+}
+
+    .product_name_home a,
+    .product_name_home a:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+.product_name p {
+    font-size: 60px;
+}
+
+.storeby {
+    text-align: left;
+    padding: 10px 0;
+}
+
+.product_list {
+    display: flex;
+    padding: 0 16px;
+}
+
+.product_a {
+    color: black;
+}
+
+    .product_a:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+.img {
+    text-align: center;
+}
+
+.card-img-top {
+    width: 90%;
+}
+
+.card {
+    border: 0px;
+}
+
+.product_only {
+    box-shadow: none;
+    margin-top: 50px;
+    transition: .3s;
+}
+
+    .product_only:hover {
+        transform: scale(1.1);
+    }
+
+.wavy {
+    position: relative;
+    -webkit-box-reflect: below -12px linear-gradient(teansparent, rgba(0, 0, 0, 0, 2));
+}
+
+    .wavy strong {
+        position: relative;
+        display: inline-block;
+        color: #000;
+        font-size: 2em;
+        text-transform: uppercase;
+        animation: animate 1s ease-in-out infinite;
+        animation-delay: calc(0.1s*var(--i));
+    }
+
+@keyframes animate {
+    0% {
+        transform: translateY(0px);
+    }
+
+    20% {
+        transform: translateY(-20px);
+    }
+
+    40%, 100% {
+        transform: translateY(0px);
+    }
+}
+/* 分隔 */
+.match {
+    border-radius:10px;
+    background-color: #000;
+    position: absolute;
+    z-index: 1;
+    top: 425px;
+    left: -240px;
+    width: 240px;
+    transition:.2s;
+    }
+
+    .match button {
+        margin-left: 13px;
+        border:none;
+        background:#000;
+        color:#fff;
+    }
+
+input:checked ~ .match {
+    left: 0px;
+}
+
+button {
+    background-color: white;
+    border: 1px solid white;
+    color: black;
+}
+
+    button:focus {
+        outline: none;
+    }
+
+#check_order {
+    display: none;
+}
