@@ -178,7 +178,7 @@ input:checked ~ .shop {
 
 .modal-body {
     width: 520px;
-    height: 600px;
+    height: 700px;
     border: 1px solid #666;
     justify-content: center;
     text-align: center;

@@ -147,44 +147,43 @@
 
     </div>
 
-    </div>
+
 </nav>
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
-         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img src="~/Assest/img/下載.png" alt="">
-                    <div class="account">
-                        <input class="mx-auto" type="text" placeholder="請輸入電子信箱" name="Email">
-                        <input type="password" class="mx-auto" placeholder="請輸入8-14碼密碼" name="Password">
-                        <input class="mx-auto" type="tel" placeholder="請輸入電話號碼" name="Phone">
-                        <input class="mx-auto" type="text" placeholder="姓名" name="CustomerName">
-                        <input class="mx-auto" type="date" placeholder="請選擇生日日期" name="Birthday">
-                    </div>
 
-
-
-                    <button class="login" type="submit">註冊</button>
-                    <div class="linear">
-                        <span style="white-space:pre"></span><span class="line"></span>
-                        <span style="white-space:pre"></span><span class="txt">或</span>
-                        <span style="white-space:pre"></span> <span class="line"></span>
-                    </div>
-                    <div class="other">
-                        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-                        @*<i class="fab fa-facebook col-4"></i>
-                            <i class="col-4 fab fa-google-plus"></i>*@
-                    </div>
-                    <div class="sign_up">
-                        <p>沒有帳號嗎?<a href="">註冊</a></p>
-                    </div>
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            
+            <div class="modal-body">
+                <img src="~/Assest/img/下載.png" alt="">
+                @using (Html.BeginForm("Create", "CRUD", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                <div class="account">
+                    <input class="mx-auto" type="text" placeholder="請輸入電子信箱" name="Email">
+                    <input type="password" class="mx-auto" placeholder="請輸入8-14碼密碼" name="Password">
+                    <input class="mx-auto" type="tel" placeholder="請輸入電話號碼" name="Phone">
+                    <input class="mx-auto" type="text" placeholder="姓名" name="CustomerName">
+                    <input class="mx-auto" type="date" placeholder="請選擇生日日期" name="Birthday">
                 </div>
 
+                <div class="sign_up">
+                    <p>沒有帳號嗎?<a href="">註冊</a></p>
+                </div>
+                <button class="login" type="submit">註冊</button>}
+                <div class="linear">
+                    <span style="white-space:pre"></span><span class="line"></span>
+                    <span style="white-space:pre"></span><span class="txt">或</span>
+                    <span style="white-space:pre"></span> <span class="line"></span>
+                </div>
+                <div class="other">
+                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                    @*<i class="fab fa-facebook col-4"></i>
+            <i class="col-4 fab fa-google-plus"></i>*@
+                </div>
             </div>
         </div>
     </div>
-}
+</div>
+
