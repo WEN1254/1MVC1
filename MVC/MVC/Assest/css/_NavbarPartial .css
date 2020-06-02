@@ -270,27 +270,30 @@ i {
 #Facebook {
     background: blue;
 }*/
-
-ul.drop-down-menu ul { 
+.navbar-nav .drop-down-menu, .navbar-nav .drop-down-menu .hidden{
+    list-style: none;
+}
+li.drop-down-menu ul {
     display: none;
 }
 
-ul.drop-down-menu li:hover > ul { 
+li.drop-down-menu:hover > ul, .hidden:hover {
     display: block;
 }
 
 .hidden {
     position: fixed;
     z-index: 2;
-    margin-top: 10px;
+    /*margin-top: 10px;*/
     margin-left: 4px;
     background-color: #343a40 !important;
+    padding:20px
     
 }
 
-    .hidden a {
-        color: white;
-    }
+ .hidden a {
+   color: white;
+ }
 
 ul.drop-down-menu li {
     white-space: nowrap;

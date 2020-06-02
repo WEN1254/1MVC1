@@ -856,7 +856,7 @@
     <Compile Include="Controllers\BestsellersController.cs" />
     <Compile Include="Controllers\IntroductionController\TablesIntroductionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LightingController.cs" />
+    <Compile Include="Controllers\ProductList\LightingController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MvcHomeController.cs" />
     <Compile Include="Controllers\IntroductionController\BedsIntroductionController.cs" />
