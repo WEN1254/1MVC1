@@ -171,6 +171,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\Cart\AllChartController.cs" />
     <Compile Include="Controllers\Cart\CartController.cs" />
     <Compile Include="Controllers\Cart\ProductController.cs" />
     <Compile Include="Controllers\CRUDController.cs" />
@@ -246,6 +247,7 @@
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>1MVC1Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AllChartViewModels.cs" />
     <Compile Include="ViewModels\ProductListViewModels.cs" />
     <Content Include="Assest\css\_NavbarPartial .css" />
     <Content Include="Assest\img\ProductImg\Amicable Split 19 Bench-Smoke.jpg" />
@@ -1097,6 +1099,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\AllChart\" />
     <Folder Include="Views\Cart\" />
     <Folder Include="Views\ProductListView\" />
     <Folder Include="Views\Product\" />
