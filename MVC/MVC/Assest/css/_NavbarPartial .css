@@ -62,23 +62,29 @@ input:checked ~ .transparent {
     background-color: white;
     position: fixed;
     top: 0px;
-    right: -300px;
+    right: -430px;
     height: 100%;
-    width: 300px;
+    width: 430px;
     transition: .2s;
-    overflow: scroll;
-    font-size:20px;
+    overflow: hidden;
+    font-size: 16px;
+    
 }
-    .shop h1{
-        width:100%;
-        text-align:center;
-
+    .shop:hover {
+       overflow-y:scroll;
+    }
+    .shop h1 {
+        width: 100%;
+        text-align: center;
     }
 
     input:checked ~ .shop {
         right: 0px;
     }
-
+   
+.item_txt {
+    margin:auto;
+}
 /* 分隔 */
 .announcement {
     width: 100%;
@@ -320,4 +326,9 @@ ul.drop-down-menu li {
 
 .table_item {
     width: 50%;
+}
+
+#Checkout{
+    background-color:black;
+    color:white;
 }

@@ -7,38 +7,8 @@
 
 <h1>購物車</h1>
 <Hr Width="w-100" Color="black">
-@*<table class="table table-striped">
-        <thead class="thead-light">
-            <tr>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                @foreach (var cartitem in currentCart)
-                {
-                    <th class="pic col-6" scope="row">
-                        <img  src="~/Assest/img/ProductImg/@cartitem.Image" alt="">
-                    </th>
-                    <td class="table_item">
-                        <h3>@cartitem.Name</h3>
-                        <p>Color:@cartitem.color</p>
-                        <p>In Stock:Ship out in 1-7 business days</p>
-                        <div class="detail">
-                            <p class="Qty">Qty:@cartitem.Quantity</p>
-                            <p class="price">$@cartitem.Price</p>
-                        </div>
 
-                    </td>
-                }
-
-
-            </tr>
-
-
-
-        </tbody>
-    </table>*@
-<div class="overflow-scroll">
+<div class="overflow-scroll w-100">
     @foreach (var cartitem in currentCart)
     {
         <div class="details ">
@@ -47,7 +17,7 @@
                     <img src="~/Assest/img/ProductImg/@cartitem.Image" class="w-100" alt="">
                 </div>
                 <div class="item_txt col-6">
-                    <h3>@cartitem.Name</h3>
+                    <strong>@cartitem.Name</strong>
                     <p>Color:@cartitem.color</p>
                   
                     <p>Qty:@cartitem.Quantity <span>$@cartitem.Price</span></p>
@@ -58,15 +28,11 @@
     }
     @String.Format("共{0}元 ", currentCart.TotalAmount)
 
-    <li><a class="btn btn-default text-center" href="~/Shop/Index">結帳去</a></li>
+    <p><a id="Checkout" class="btn btn-default text-center" href="~/Shop/Index">結帳去</a></p>
 </div>
 
 
-@*@foreach (var cartitem in currentCart)
-{
-    //依序輸出 : <li><a>可愛橡皮擦 <span>50元 X 2</span></a></li>
-    <p>@cartitem.Name <span>@cartitem.Price 元 X @cartitem.Quantity </span></p>
-}*@
+
 
 
 

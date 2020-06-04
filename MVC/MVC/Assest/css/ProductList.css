@@ -128,3 +128,8 @@ button {
 #check_order {
     display: none;
 }
+
+#AddToCart{
+   background-color:black;
+   color:white;
+}
