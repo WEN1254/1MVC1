@@ -23,13 +23,17 @@
             <input type="checkbox" id="check_order">
             <span><button for="check_order" onclick="match()">SORT BY BEST MATCH</button></span>
             <div class="match">
-                <button>BESTSELLERS</button>
+                <button> @Html.ActionLink("BESTSELLERS", "LivingBenches", new { sortOrder = ViewBag.QuantityParm })</button>
                 <br>
-                <button>NEW</button>
+                <button>@Html.ActionLink("NAMES FROM SMALL TO LARGE", "LivingBenches", new { sortOrder = ViewBag.NameSortParm })</button>
                 <br>
-                <button>PRICE LOW TO HIGH</button>
+                <button> @Html.ActionLink("NAMES FROM LARGE TO SMALL", "LivingBenches", new { sortOrder = ViewBag.NamedescSortParm })</button>
                 <br>
-                <button>PRICE HIGH TO LOW</button>
+                <button> @Html.ActionLink("PRICE LOW TO HIGH", "LivingBenches", new { sortOrder = ViewBag.PriceSortParm })</button>
+                <br>
+                <button> @Html.ActionLink("PRICE HIGH TO LOW", "LivingBenches", new { sortOrder = ViewBag.PricedescSortParm })</button>
+                <br>
+                <button>@Html.ActionLink("RESET", "LivingBenches", new { sortOrder = ViewBag.ResetParm })</button>
             </div>
 
 
