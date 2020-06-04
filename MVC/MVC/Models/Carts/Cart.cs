@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC.ViewModels;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,11 +44,22 @@ namespace MVC.Models.Carts
             {   //不存在購物車內，則新增一筆
                 using (Models.mvcContext db = new mvcContext())
                 {
-                    var product = (from s in db.Products
-                                   where s.ProductID == ProductId
-                                   select s).FirstOrDefault();
+                    var product = (
+                                   from ps in db.ProductSpecifications
+                                   where ps.ProductID == ProductId
+                                   select new ChartViewModels
+                                   {
+                                       ProductSpecificationID = ps.ProductSpecificationID,
+                                       ProductID = ps.ProductID,
+                                       Price = ps.Price,
+                                       Colour = ps.Colour,
+                                       Image = ps.Image,
+                                       ProductName = ps.Product.ProductName,
+                                       Quantity = ps.Product.Quantity,
+                                   }).FirstOrDefault();
 
-                    if (product != default(Models.Product))
+
+                    if (product != default(ViewModels.ChartViewModels))
                     {
                         this.AddProduct(product);
                     }
@@ -62,7 +74,7 @@ namespace MVC.Models.Carts
 
 
         //新增一筆Product，使用Product物件
-        private bool AddProduct(Product product)
+        private bool AddProduct(ViewModels.ChartViewModels product)
         {
             //將Product轉為CartItem
             var cartItem = new Models.Carts.CartItem()
@@ -70,6 +82,8 @@ namespace MVC.Models.Carts
                 Id = product.ProductID,
                 Name = product.ProductName,
                 Price = product.Price,
+                Image=product.Image,
+                color=product.Colour,
                 Quantity = 1
             };
 
@@ -88,5 +102,7 @@ namespace MVC.Models.Carts
         {
             return this.cartItems.GetEnumerator();
         }
+
+        
     }
 }

@@ -20,6 +20,10 @@ namespace MVC.Models.Carts
         //商品購買數量
         public int Quantity { get; set; }
 
+
+        public string color { get; set; }
+
+        public string Image { get; set; }
         //商品小計
         public decimal Amount
         {

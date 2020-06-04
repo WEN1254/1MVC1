@@ -175,6 +175,7 @@
     <Compile Include="Controllers\Cart\ProductController.cs" />
     <Compile Include="Controllers\CRUDController.cs" />
     <Compile Include="Controllers\IntroductionController\SofasIntroductionController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Models\1MVC1Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -205,6 +206,7 @@
     <Compile Include="Models\Carts\Cart.cs" />
     <Compile Include="Models\Carts\CartItem.cs" />
     <Compile Include="Models\Carts\Operation.cs" />
+    <Compile Include="Models\Carts\ProductSpecifications.cs" />
     <Compile Include="Models\Customer.cs">
       <DependentUpon>1MVC1Model.tt</DependentUpon>
     </Compile>
@@ -229,6 +231,7 @@
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>1MVC1Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ChartViewModels.cs" />
     <Compile Include="ViewModels\ProductListViewModels.cs" />
     <Content Include="Assest\css\_NavbarPartial .css" />
     <Content Include="Assest\img\ProductImg\Amicable Split 19 Bench-Smoke.jpg" />
@@ -1075,6 +1078,7 @@
     <Content Include="Views\ProductList\Mirrors.cshtml" />
     <Content Include="Views\ProductList\Bedding.cshtml" />
     <Content Include="Views\ProductList\Lighting.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -63,14 +63,21 @@ input:checked ~ .transparent {
     position: fixed;
     top: 0px;
     right: -300px;
-    height: 1000px;
+    height: 100%;
     width: 300px;
     transition: .2s;
+    overflow: scroll;
+    font-size:20px;
 }
+    .shop h1{
+        width:100%;
+        text-align:center;
 
-input:checked ~ .shop {
-    right: 0px;
-}
+    }
+
+    input:checked ~ .shop {
+        right: 0px;
+    }
 
 /* 分隔 */
 .announcement {
@@ -297,4 +304,20 @@ li.drop-down-menu:hover > ul, .hidden:hover {
 
 ul.drop-down-menu li {
     white-space: nowrap;
+}
+
+.pic {
+    width: 50%;
+}
+
+    .pic img {
+        width: 100%;
+    }
+
+.detail {
+    margin-top: 55%;
+}
+
+.table_item {
+    width: 50%;
 }
