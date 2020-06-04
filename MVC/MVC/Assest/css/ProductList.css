@@ -95,12 +95,13 @@
 .match {
     border-radius:10px;
     background-color: #000;
-    position: absolute;
+    position:fixed !important;
     z-index: 1;
     top: 425px;
     left: -240px;
     width: 240px;
     transition:.2s;
+
     }
 
     .match button {
