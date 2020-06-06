@@ -74,27 +74,28 @@
         </div>
         <div class="wavy">
             <h2> @title</h2>
-   
+
         </div>
-       
+
         <div class="storeby">
             <input type="checkbox" id="check_order">
             <span><button for="check_order" onclick="match()">SORT BY BEST MATCH</button></span>
             <div class="match">
-                <button onclick="BS()">BESTSELLERS</button>
+                <button> @Html.ActionLink("BESTSELLERS", "Category", new { type = SmallId,sortOrder = ViewBag.QuantityParm },null)</button>
                 <br>
-                <button  onclick="NStoL">NAMES FROM SMALL TO LARGE</button>
+                <button>@Html.ActionLink("NAMES FROM SMALL TO LARGE", "Category", new { type = SmallId,sortOrder = ViewBag.NameSortParm })</button>
                 <br>
-                <button  onclick="NLtoS"> NAMES FROM LARGE TO SMALL</button>
+                <button> @Html.ActionLink("NAMES FROM LARGE TO SMALL", "Category", new { type = SmallId,sortOrder = ViewBag.NamedescSortParm })</button>
                 <br>
-                <button  onclick="PLtoH"> PRICE LOW TO HIGH</button>
+                <button> @Html.ActionLink("PRICE LOW TO HIGH", "Category", new { type = SmallId,sortOrder = ViewBag.PriceSortParm })</button>
                 <br>
-                <button  onclick="PHtoL">PRICE HIGH TO LOW</button>
+                <button> @Html.ActionLink("PRICE HIGH TO LOW", "Category", new { type = SmallId,sortOrder = ViewBag.PricedescSortParm })</button>
                 <br>
-                <button  onclick="RS">RESET</button>
+                <button>@Html.ActionLink("RESET", "Category", new { type = SmallId,sortOrder = ViewBag.ResetParm })</button>
             </div>
         </div>
     </div>
+
     <div class="product_list row">
         @foreach (var item in Model)
         {
@@ -106,9 +107,9 @@
                                  alt="圖片說明" class="card-img-top">
                         </div>
                         <div class="card-body">
-                           
+
                             <p id="Name" class="card-title"><strong>@Html.DisplayFor(modelItem => item.ProductName)</strong></p>
-                            
+
                             <p id="Price" class="card-text"> $@Html.DisplayFor(modelItem => item.Price)</p>
                             <p id="Quantity"> @Html.DisplayFor(modelItem => item.Quantity)  Left</p>
                             <p>
@@ -132,11 +133,11 @@
 }
 @section endJS{
     <script src="~/Assest/js/ProductList.js"></script>
-    <script type="text/javascript">
+    <script>
         function BS() {
-            alert(11111)
+            alert("1111")
             @Model.OrderByDescending(x => x.Quantity);
         }
-
     </script>
+
 }

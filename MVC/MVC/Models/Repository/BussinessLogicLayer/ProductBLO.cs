@@ -29,16 +29,17 @@ namespace MVC.Models.Repository.BussinessLogicLayer
                 Quantity = x.Quantity,
                 SmallClassificationID=x.SmallClassificationID
              }).ToList();
+
             return result;
         }
         //Results = Results.OrderBy(s => s.Quantity).ToList();
-        public List<ProductListViewModel> GetLighting()
-        {
-            var queryresult = this.GetAll();
-            List<ProductListViewModel> liststr = new List<ProductListViewModel>();
-            liststr = queryresult.ToList();
-            return liststr;
-        }
+        //public List<ProductListViewModel> GetLighting()
+        //{
+        //    var queryresult = this.GetAll();
+        //    List<ProductListViewModel> liststr = new List<ProductListViewModel>();
+        //    liststr = queryresult.ToList();
+        //    return liststr;
+        //}
 
     }
 }
