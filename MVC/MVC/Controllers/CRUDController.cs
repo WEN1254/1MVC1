@@ -7,12 +7,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVC.Models;
+using MVC.Models.Database;
 
 namespace MVC.Controllers
 {
     public class CRUDController : Controller
     {
-        private mvcContext db = new mvcContext();
+        private _1MVC1Model db = new _1MVC1Model();
 
         // GET: CRUD
         public ActionResult Index()

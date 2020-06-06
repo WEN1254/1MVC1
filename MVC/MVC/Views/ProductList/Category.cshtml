@@ -1,0 +1,142 @@
+﻿@model IEnumerable<MVC.ViewModels.ProductListViewModel>
+
+@{
+    var SmallId = Model.FirstOrDefault().SmallClassificationID;
+    var title = "";
+
+    switch (SmallId)
+    {
+        case 1:
+            title = "Sofas And Sleeper";
+            break;
+        case 2:
+            title = "Sectional Sofas";
+            break;
+        case 3:
+            title = "Lounge Chairs";
+            break;
+        case 4:
+            title = "Ottomans And Stools";
+            break;
+        case 5:
+            title = "Benches";
+            break;
+        case 6:
+            title = "Kids-Chairs";
+            break;
+        case 7:
+            title = "Accent And Coffee Tables";
+            break;
+        case 8:
+            title = "Office-Desks And Tables";
+            break;
+        case 9:
+            title = "Kids-Desk";
+            break;
+        case 10:
+            title = "Bedroom-Beds";
+            break;
+        case 11:
+            title = "Kids-Beds";
+            break;
+        case 12:
+            title = "Dressers";
+            break;
+        case 13:
+            title = "Bookcases";
+            break;
+        case 14:
+            title = "Rugs";
+            break;
+        case 15:
+            title = "Pillows And Cushions";
+            break;
+        case 16:
+            title = "Mirrors";
+            break;
+        case 17:
+            title = "Bedding";
+            break;
+        case 18:
+            title = "Lighting";
+            break;
+        default:
+            break;
+    }
+
+}
+
+<div class="container">
+    <div class="product_name">
+        <div class="product_name_home">
+            <a href="#">Home</a>
+            <span>Bestselling Modern Furniture Designs</span>
+        </div>
+        <div class="wavy">
+            <h2> @title</h2>
+   
+        </div>
+       
+        <div class="storeby">
+            <input type="checkbox" id="check_order">
+            <span><button for="check_order" onclick="match()">SORT BY BEST MATCH</button></span>
+            <div class="match">
+                <button onclick="BS()">BESTSELLERS</button>
+                <br>
+                <button  onclick="NStoL">NAMES FROM SMALL TO LARGE</button>
+                <br>
+                <button  onclick="NLtoS"> NAMES FROM LARGE TO SMALL</button>
+                <br>
+                <button  onclick="PLtoH"> PRICE LOW TO HIGH</button>
+                <br>
+                <button  onclick="PHtoL">PRICE HIGH TO LOW</button>
+                <br>
+                <button  onclick="RS">RESET</button>
+            </div>
+        </div>
+    </div>
+    <div class="product_list row">
+        @foreach (var item in Model)
+        {
+            <div class="col-6 col-md-4 col-xl-3 product_only ">
+                <a href="~/ProductInformation/Index" class="product_a">
+                    <div class="card">
+                        <div class="img">
+                            <img src="~/Assest/img/ProductImg/@Html.DisplayFor(modelItem => item.Image)"
+                                 alt="圖片說明" class="card-img-top">
+                        </div>
+                        <div class="card-body">
+                           
+                            <p id="Name" class="card-title"><strong>@Html.DisplayFor(modelItem => item.ProductName)</strong></p>
+                            
+                            <p id="Price" class="card-text"> $@Html.DisplayFor(modelItem => item.Price)</p>
+                            <p id="Quantity"> @Html.DisplayFor(modelItem => item.Quantity)  Left</p>
+                            <p>
+                                <a onclick="AddToCart(' @Html.DisplayFor(modelItem => item.ProductID)')" href=""
+                                   class="btn btn-primary" role="button" id="AddToCart">
+                                    Add To Cart
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+@section topCSS{
+
+    <link href="~/Assest/css/ProductList.css" rel="stylesheet" />
+    <style type="text/css">
+    </style>
+}
+@section endJS{
+    <script src="~/Assest/js/ProductList.js"></script>
+    <script type="text/javascript">
+        function BS() {
+            alert(11111)
+            @Model.OrderByDescending(x => x.Quantity);
+        }
+
+    </script>
+}

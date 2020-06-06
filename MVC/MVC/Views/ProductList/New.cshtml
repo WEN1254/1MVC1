@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MVC.ViewModels.ProductListViewModels>
+﻿@model IEnumerable<MVC.ViewModels.ProductListViewModel>
 
 
 
@@ -46,17 +46,17 @@
                         <div class="img">
                             <img src="~/Assest/img/ProductImg/@Html.DisplayFor(modelItem => item.Image)"
                                  alt="圖片說明" class="card-img-top">
-                            @*<img src="~/Assest/img/下載.png" alt="">*@
                         </div>
                         <div class="card-body">
-
-                            <strong>
-                                <p class="card-title"> @Html.DisplayFor(modelItem => item.ProductName)</p>
-                            </strong>
+                            <p class="card-title">
+                                <strong>
+                                    @Html.DisplayFor(modelItem => item.ProductName)
+                                </strong>
+                            </p>
                             <p class="card-text"> $@Html.DisplayFor(modelItem => item.Price)</p>
                             <p> @Html.DisplayFor(modelItem => item.Quantity)  Left</p>
                             <p>
-                                <a onclick="AddToCart(' @Html.DisplayFor(modelItem => item.ProductID)')" href="javascript:void(0);"
+                                <a onclick="AddToCart(' @Html.DisplayFor(modelItem => item.ProductID)')" href=""
                                    class="btn btn-primary" role="button" id="AddToCart">
                                     Add To Cart
                                 </a>

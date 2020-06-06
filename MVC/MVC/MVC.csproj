@@ -47,6 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -176,63 +179,29 @@
     <Compile Include="Controllers\CRUDController.cs" />
     <Compile Include="Controllers\IntroductionController\SofasIntroductionController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
-    <Compile Include="Models\1MVC1Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>1MVC1Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\1MVC1Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>1MVC1Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\1MVC1Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>1MVC1Model.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>1MVC1Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>1MVC1Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>1MVC1Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>1MVC1Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Carts\Cart.cs" />
     <Compile Include="Models\Carts\CartItem.cs" />
     <Compile Include="Models\Carts\Operation.cs" />
     <Compile Include="Models\Carts\ProductSpecifications.cs" />
-    <Compile Include="Models\Customer.cs">
-      <DependentUpon>1MVC1Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>1MVC1Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MainClassification.cs">
-      <DependentUpon>1MVC1Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Order.cs">
-      <DependentUpon>1MVC1Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Product.cs">
-      <DependentUpon>1MVC1Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProductSpecification.cs">
-      <DependentUpon>1MVC1Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SmallClassification.cs">
-      <DependentUpon>1MVC1Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>1MVC1Model.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Database\1MVC1Model.cs" />
+    <Compile Include="Models\Database\AspNetRole.cs" />
+    <Compile Include="Models\Database\AspNetUser.cs" />
+    <Compile Include="Models\Database\AspNetUserClaim.cs" />
+    <Compile Include="Models\Database\AspNetUserLogin.cs" />
+    <Compile Include="Models\Database\Customer.cs" />
+    <Compile Include="Models\Database\C__MigrationHistory.cs" />
+    <Compile Include="Models\Database\MainClassification.cs" />
+    <Compile Include="Models\Database\Order.cs" />
+    <Compile Include="Models\Database\Product.cs" />
+    <Compile Include="Models\Database\ProductList.cs" />
+    <Compile Include="Models\Database\ProductSpecification.cs" />
+    <Compile Include="Models\Database\SmallClassification.cs" />
+    <Compile Include="Models\Database\sysdiagram.cs" />
+    <Compile Include="Models\OutUnitModels\OutApiModels.cs" />
+    <Compile Include="Models\Repository\BussinessLogicLayer\ProductBLO.cs" />
+    <Compile Include="Models\Repository\DatabaseLogicLayer\ProductDLO.cs" />
     <Compile Include="ViewModels\ChartViewModels.cs" />
-    <Compile Include="ViewModels\ProductListViewModels.cs" />
+    <Compile Include="ViewModels\ProductListViewModel.cs" />
     <Content Include="Assest\css\_NavbarPartial .css" />
     <Content Include="Assest\img\ProductImg\Amicable Split 19 Bench-Smoke.jpg" />
     <Content Include="Assest\img\ProductImg\Amicable Split 19 Bench-Walnut.jpg" />
@@ -874,16 +843,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\1MVC1Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>1MVC1Model.edmx</DependentUpon>
-      <LastGenOutput>1MVC1Model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\1MVC1Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>1MVC1Model.edmx</DependentUpon>
-      <LastGenOutput>1MVC1Model.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -907,13 +866,6 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <EntityDeploy Include="Models\1MVC1Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>1MVC1Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\1MVC1Model.edmx.diagram">
-      <DependentUpon>1MVC1Model.edmx</DependentUpon>
-    </Content>
     <None Include="Properties\PublishProfiles\1mvc1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -1058,27 +1010,10 @@
     <Content Include="Views\CRUD\Edit.cshtml" />
     <Content Include="Views\CRUD\Index.cshtml" />
     <Content Include="Views\ProductList\Bestsellers.cshtml" />
-    <Content Include="Views\ProductList\LivingSectionalSofas.cshtml" />
     <Content Include="Views\ProductList\Outlet.cshtml" />
     <Content Include="Views\ProductList\New.cshtml" />
-    <Content Include="Views\ProductList\LivingSofasAndSleeper.cshtml" />
-    <Content Include="Views\ProductList\LivingLoungeChairs.cshtml" />
-    <Content Include="Views\ProductList\OttomansAndStools.cshtml" />
-    <Content Include="Views\ProductList\LivingBenches.cshtml" />
-    <Content Include="Views\ProductList\KidChairs.cshtml" />
-    <Content Include="Views\ProductList\LivingAccentAndCoffeeTables.cshtml" />
-    <Content Include="Views\ProductList\OfficeDesksAndTables.cshtml" />
-    <Content Include="Views\ProductList\KidsDesk.cshtml" />
-    <Content Include="Views\ProductList\BedroomBeds.cshtml" />
-    <Content Include="Views\ProductList\KidsBeds.cshtml" />
-    <Content Include="Views\ProductList\BedroomDressers.cshtml" />
-    <Content Include="Views\ProductList\LivingBookcases.cshtml" />
-    <Content Include="Views\ProductList\Rugs.cshtml" />
-    <Content Include="Views\ProductList\PillowsAndCushions.cshtml" />
-    <Content Include="Views\ProductList\Mirrors.cshtml" />
-    <Content Include="Views\ProductList\Bedding.cshtml" />
-    <Content Include="Views\ProductList\Lighting.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\ProductList\Category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -38,7 +38,6 @@ input {
 
     .collapse #btn {
         border: none;
-       
     }
 
 .transparent {
@@ -68,22 +67,23 @@ input:checked ~ .transparent {
     transition: .2s;
     overflow: hidden;
     font-size: 16px;
-    
 }
+
     .shop:hover {
-       overflow-y:scroll;
+        overflow-y: scroll;
     }
+
     .shop h1 {
         width: 100%;
         text-align: center;
     }
 
-    input:checked ~ .shop {
-        right: 0px;
-    }
-   
+input:checked ~ .shop {
+    right: 0px;
+}
+
 .item_txt {
-    margin:auto;
+    margin: auto;
 }
 /* 分隔 */
 .announcement {
@@ -273,6 +273,7 @@ i {
     text-decoration: none;
     font-weight: 600;
 }
+
 #btn {
     background: #343a40;
 }
@@ -283,9 +284,10 @@ i {
 #Facebook {
     background: blue;
 }*/
-.navbar-nav .drop-down-menu, .navbar-nav .drop-down-menu .hidden{
+.navbar-nav .drop-down-menu, .navbar-nav .drop-down-menu .hidden {
     list-style: none;
 }
+
 li.drop-down-menu ul {
     display: none;
 }
@@ -300,13 +302,12 @@ li.drop-down-menu:hover > ul, .hidden:hover {
     /*margin-top: 10px;*/
     margin-left: 4px;
     background-color: #343a40 !important;
-    padding:20px
-    
+    padding: 20px
 }
 
- .hidden a {
-   color: white;
- }
+    .hidden a {
+        color: white;
+    }
 
 ul.drop-down-menu li {
     white-space: nowrap;
@@ -328,7 +329,7 @@ ul.drop-down-menu li {
     width: 50%;
 }
 
-#Checkout{
-    background-color:black;
-    color:white;
+#Checkout {
+    background-color: black;
+    color: white;
 }

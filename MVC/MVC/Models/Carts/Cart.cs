@@ -1,4 +1,5 @@
-﻿using MVC.ViewModels;
+﻿using MVC.Models.Database;
+using MVC.ViewModels;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -42,7 +43,7 @@ namespace MVC.Models.Carts
             //判斷相同Id的CartItem是否已經存在購物車內
             if (findItem == default(Models.Carts.CartItem))
             {   //不存在購物車內，則新增一筆
-                using (Models.mvcContext db = new mvcContext())
+                using (Models.Database._1MVC1Model db = new _1MVC1Model())
                 {
                     var product = (
                                    from ps in db.ProductSpecifications
