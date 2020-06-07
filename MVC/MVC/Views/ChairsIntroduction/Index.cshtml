@@ -34,10 +34,18 @@
             </div>
             <h1>Chairs</h1>
             <ul>
-                <li><a href="~/ProductList/LivingLoungeChairs" class="category_name"><span>Living-Lounge Chairs</span></a></li>
-                <li><a href="~/ProductList/OttomansAndStools" class="category_name"><span>Living-Ottomans And Stools</span></a></li>
-                <li><a href="~/ProductList/LivingBenches" class="category_name"><span>Living-Benches</span></a></li>
-                <li><a href="~/ProductList/KidChairs" class="category_name"><span>Kids-Chairs</span></a></li>
+                <li>
+                    @Html.ActionLink("Lounge Chairs", "Category", "ProductList", new { type = 3 }, new { sortOrder = ViewBag.ResetParm })
+                </li>
+                <li>
+                    @Html.ActionLink("Ottomans And Stools", "Category", "ProductList", new { type = 4 }, new { sortOrder = ViewBag.ResetParm })
+                </li>
+                <li>
+                    @Html.ActionLink("Benches", "Category", "ProductList", new { type = 5 }, new { sortOrder = ViewBag.ResetParm })
+                </li>
+                <li>
+                    @Html.ActionLink("Kids-Chairs", "Category", "ProductList", new { type = 6 }, new { sortOrder = ViewBag.ResetParm })
+                </li>
             </ul>
         </div>
     </div>
@@ -46,6 +54,15 @@
 @section topCSS{
 
     <link href="~/Assest/css/Introduction.css" rel="stylesheet" />
-    <style type="text/css">
+    <style>
+        li a {
+            color: black;
+            text-decoration: none;
+        }
+
+            li a:hover {
+                color: black;
+                text-decoration: none;
+            }
     </style>
 }

@@ -1010,7 +1010,6 @@
     <Content Include="Views\CRUD\Edit.cshtml" />
     <Content Include="Views\CRUD\Index.cshtml" />
     <Content Include="Views\ProductList\Bestsellers.cshtml" />
-    <Content Include="Views\ProductList\Outlet.cshtml" />
     <Content Include="Views\ProductList\New.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\ProductList\Category.cshtml" />

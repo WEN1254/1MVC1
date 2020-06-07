@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MVC.ViewModels.ProductListViewModels>
+﻿@model IEnumerable<MVC.ViewModels.ProductListViewModel>
 
 
 <div class="container">
@@ -7,20 +7,10 @@
             <a href="#">Home</a>
             <span>Bestselling Modern Furniture Designs</span>
         </div>
-        <p class="wavy">
+        <div class="wavy">
+            <h2> Bestsellers</h2>
 
-            <strong style="--i:1;">B</strong>
-            <strong style="--i:2;">e</strong>
-            <strong style="--i:3;">s</strong>
-            <strong style="--i:4;">t</strong>
-            <strong style="--i:5;">s</strong>
-            <strong style="--i:6;">e</strong>
-            <strong style="--i:7;">l</strong>
-            <strong style="--i:8;">l</strong>
-            <strong style="--i:9;">e</strong>
-            <strong style="--i:10;">r</strong>
-            <strong style="--i:11;">s</strong>
-        </p>
+        </div>
         <div class="storeby">
 
 
@@ -55,11 +45,17 @@
                             @*<img src="~/Assest/img/下載.png" alt="">*@
                         </div>
                         <div class="card-body">
-                            <strong>
-                                <p class="card-title"> @Html.DisplayFor(modelItem => item.ProductName)</p>
-                            </strong>
-                            <p class="card-text"> $@Html.DisplayFor(modelItem => item.Price)</p>
-                            <p> @Html.DisplayFor(modelItem => item.Quantity)  Left</p>
+
+                            <p id="Name" class="card-title"><strong>@Html.DisplayFor(modelItem => item.ProductName)</strong></p>
+
+                            <p id="Price" class="card-text"> $@Html.DisplayFor(modelItem => item.Price)</p>
+                            <p id="Quantity"> @Html.DisplayFor(modelItem => item.Quantity)  Left</p>
+                            <p>
+                                <a onclick="AddToCart(' @Html.DisplayFor(modelItem => item.ProductID)')" href=""
+                                   class="btn btn-primary" role="button" id="AddToCart">
+                                    Add To Cart
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </a>

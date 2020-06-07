@@ -33,10 +33,18 @@
             </div>
             <h1>Accessories</h1>
             <ul>
-                <li><a href="~/ProductList/Rugs" class="category_name"><span>Rugs</span></a></li>
-                <li><a href="~/ProductList/PillowsAndCushions" class="category_name"><span>Pillows And Cushions</span></a></li>
-                <li><a href="~/ProductList/Mirrors" class="category_name"><span>Mirrors</span></a></li>
-                <li><a href="~/ProductList/Bedding" class="category_name"><span>Bedding</span></a></li>
+                <li>
+                    @Html.ActionLink("Rugs", "Category", "ProductList", new { type = 14 }, new { sortOrder = ViewBag.ResetParm })
+                </li>
+                <li>
+                    @Html.ActionLink("Pillows And Cushionss", "Category", "ProductList", new { type = 15 }, new { sortOrder = ViewBag.ResetParm })
+                </li>
+                <li>
+                    @Html.ActionLink("Mirrors", "Category", "ProductList", new { type = 16 }, new { sortOrder = ViewBag.ResetParm })
+                </li>
+                <li>
+                    @Html.ActionLink("Bedding", "Category", "ProductList", new { type = 17 }, new { sortOrder = ViewBag.ResetParm })
+                </li>
             </ul>
         </div>
     </div>
@@ -44,6 +52,14 @@
 @section topCSS{
     <link href="~/Assest/css/Introduction.css" rel="stylesheet" />
     <link href="~/Content/Chart.css" rel="stylesheet" />
-    <style type="text/css">
+    <style>
+        li a{
+            color:black;
+            text-decoration:none;
+        }
+        li a:hover{
+            color:black;
+            text-decoration:none;
+        }
     </style>
 }

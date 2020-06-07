@@ -32,8 +32,12 @@
             </div>
             <h1>Cabinet And Dressingtable</h1>
             <ul>
-                <li><a href="~/ProductList/BedroomDressers" class="category_name"><span>Bedroom-Dressers</span></a></li>
-                <li><a href="~/ProductList/LivingBookcases" class="category_name"><span>Living-Bookcases</span></a></li>
+                <li>
+                    @Html.ActionLink("Dressers", "Category", "ProductList", new { type = 12 }, new { sortOrder = ViewBag.ResetParm })
+                </li>
+                <li>
+                    @Html.ActionLink("Bookcases", "Category", "ProductList", new { type = 13 }, new { sortOrder = ViewBag.ResetParm })
+                </li>
             </ul>
         </div>
     </div>
@@ -41,6 +45,15 @@
 @section topCSS{
 
     <link href="~/Assest/css/Introduction.css" rel="stylesheet" />
-    <style type="text/css">
+    <style>
+        li a {
+            color: black;
+            text-decoration: none;
+        }
+
+            li a:hover {
+                color: black;
+                text-decoration: none;
+            }
     </style>
 }
