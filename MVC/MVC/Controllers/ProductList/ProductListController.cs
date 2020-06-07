@@ -1,4 +1,5 @@
-﻿using MVC.Models;
+﻿using Microsoft.Ajax.Utilities;
+using MVC.Models;
 using MVC.Models.Repository.BussinessLogicLayer;
 using MVC.ViewModels;
 using System;
@@ -17,6 +18,7 @@ namespace MVC.Controllers
             _ProductBLO = new ProductBLO();
         }
         // GET: ProductList
+
         public ActionResult New(string sortOrder)
         {
             var queryresult = _ProductBLO.GetAll();
