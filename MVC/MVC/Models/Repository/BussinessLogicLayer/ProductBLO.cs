@@ -27,7 +27,8 @@ namespace MVC.Models.Repository.BussinessLogicLayer
                 Price = x.Price,
                 Image = x.Image,
                 Quantity = x.Quantity,
-                SmallClassificationID=x.SmallClassificationID
+                SmallClassificationID=x.SmallClassificationID,
+                 ProductSpecificationID=x.ProductSpecificationID
              }).ToList();
 
             return result;

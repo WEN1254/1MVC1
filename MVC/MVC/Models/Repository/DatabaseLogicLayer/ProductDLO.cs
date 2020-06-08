@@ -15,7 +15,7 @@ namespace MVC.Models.Repository.DatabaseLogicLayer
         private string SQLStr = ConfigurationManager.ConnectionStrings["MVCContext"].ConnectionString;
         public IEnumerable<ProductList> GetAll()
         {
-            string SQLcommand= @"select p.ProductID ,p.ProductName,p.SmallClassificationID,ps.Price,ps.Image,p.Quantity
+            string SQLcommand= @"select p.ProductID ,p.ProductName,p.SmallClassificationID,ps.Price,ps.Image,p.Quantity,ps.ProductSpecificationID
                                     from Products p
                                     join  (select *
                                     from(

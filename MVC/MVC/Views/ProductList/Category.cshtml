@@ -101,7 +101,7 @@
             {
                 @*@Html.ActionLink("詳情", "ProductInformation", new { id = item.ProductID }, new { @class = "btn btn-primary col-8" })*@
                 <div class="col-6 col-md-4 col-xl-3 product_only ">
-                    <a href="~/ProductList/ProductInformation/@item.ProductID" class="product_a">
+                    <a href="~/ProductList/ProductInformation/@item.ProductSpecificationID" class="product_a">
                         <div class="card">
                             <div class="img">
                                 <img src="~/Assest/img/ProductImg/@Html.DisplayFor(modelItem => item.Image)"

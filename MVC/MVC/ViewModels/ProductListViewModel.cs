@@ -13,5 +13,6 @@ namespace MVC.ViewModels
         public string Image { get; set; }
         public int Quantity { get; set; }
         public int SmallClassificationID { get; set; }
+        public int ProductSpecificationID { get; set; }
     }
 }
