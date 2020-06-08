@@ -47,7 +47,7 @@ namespace MVC.Models.Carts
                 {
                     var product = (
                                    from ps in db.ProductSpecifications
-                                   where ps.ProductID == ProductId
+                                   where ps.ProductSpecificationID == ProductId
                                    select new ChartViewModels
                                    {
                                        ProductSpecificationID = ps.ProductSpecificationID,
