@@ -27,6 +27,9 @@ a div:nth-child(1) {
 .product {
     padding-top: 50px;
 }
+.product li{
+    padding-top: 30px;
+}
 
 .buy {
     text-align: left;
@@ -90,11 +93,11 @@ a div:nth-child(1) {
 }
 
 .materials {
-    width: 100%;
-    text-align: left;
+    width: 80%;
+    text-align: center;
     margin: auto;
     padding-top: 50px;
-    padding-left: 27%;
+    /*padding-left: 27%;*/
     padding-bottom: 50px;
 }
 

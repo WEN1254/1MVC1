@@ -1,5 +1,6 @@
 ﻿using Microsoft.Ajax.Utilities;
 using MVC.Models;
+using MVC.Models.Database;
 using MVC.Models.Repository.BussinessLogicLayer;
 using MVC.ViewModels;
 using System;
@@ -13,12 +14,18 @@ namespace MVC.Controllers
     public class ProductListController : Controller
     {
         private ProductBLO _ProductBLO = new ProductBLO();
+        private _1MVC1Model db = new _1MVC1Model();
         public ProductListController()
         {
             _ProductBLO = new ProductBLO();
         }
         // GET: ProductList
-
+        public ActionResult ProductInformation(int id)
+        {
+            var productCategory = db.Products.Find(id);
+            var data = productCategory.ProductSpecifications.ToList();
+            return View(data);
+        }
         public ActionResult New(string sortOrder)
         {
             var queryresult = _ProductBLO.GetAll();

@@ -37,7 +37,7 @@
         @foreach (var item in Model)
         {
             <div class="col-6 col-md-4 col-xl-3 product_only ">
-                <a href="~/ProductInformation/Index" class="product_a">
+                
                     <div class="card">
                         <div class="img">
                             <img src="~/Assest/img/ProductImg/@Html.DisplayFor(modelItem => item.Image)"
@@ -49,6 +49,7 @@
                             <p id="Name" class="card-title"><strong>@Html.DisplayFor(modelItem => item.ProductName)</strong></p>
 
                             <p id="Price" class="card-text"> $@Html.DisplayFor(modelItem => item.Price)</p>
+                            @Html.ActionLink("詳情", "ProductInformation", new { id = item.ProductID }, new { @class = "btn btn-primary col-8" })
                             <p id="Quantity"> @Html.DisplayFor(modelItem => item.Quantity)  Left</p>
                             <p>
                                 <a onclick="AddToCart(' @Html.DisplayFor(modelItem => item.ProductID)')" href=""
@@ -58,7 +59,6 @@
                             </p>
                         </div>
                     </div>
-                </a>
             </div>
         }
 
