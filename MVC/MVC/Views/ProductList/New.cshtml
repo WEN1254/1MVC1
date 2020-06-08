@@ -36,30 +36,32 @@
     <div class="product_list row">
         @foreach (var item in Model)
         {
-            <div class="col-6 col-md-4 col-xl-3 product_only ">
-                    <div class="card">
-                        <div class="img">
-                            <img src="~/Assest/img/ProductImg/@Html.DisplayFor(modelItem => item.Image)"
-                                 alt="圖片說明" class="card-img-top">
-                        </div>
-                        <div class="card-body">
-                            <p class="card-title">
-                                <strong>
-                                    @Html.DisplayFor(modelItem => item.ProductName)
-                                </strong>
-                            </p>
-                            <p class="card-text"> $@Html.DisplayFor(modelItem => item.Price)</p>
-                            @Html.ActionLink("詳情", "ProductInformation", new { id = item.ProductID }, new { @class = "btn btn-primary col-8" })
-                            <p> @Html.DisplayFor(modelItem => item.Quantity)  Left</p>
-                            <p>
-                                <a onclick="AddToCart(' @Html.DisplayFor(modelItem => item.ProductID)')" href=""
-                                   class="btn btn-primary" role="button" id="AddToCart">
-                                    Add To Cart
-                                </a>
-                            </p>
-                        </div>
+        <div class="col-6 col-md-4 col-xl-3 product_only ">
+            <a href="~/ProductList/ProductInformation/@item.ProductID" class="product_a">
+                <div class="card">
+                    <div class="img">
+                        <img src="~/Assest/img/ProductImg/@Html.DisplayFor(modelItem => item.Image)"
+                             alt="圖片說明" class="card-img-top">
                     </div>
-            </div>
+                    <div class="card-body">
+                        <p class="card-title">
+                            <strong>
+                                @Html.DisplayFor(modelItem => item.ProductName)
+                            </strong>
+                        </p>
+                        <p class="card-text"> $@Html.DisplayFor(modelItem => item.Price)</p>
+       
+                        <p> @Html.DisplayFor(modelItem => item.Quantity)  Left</p>
+                        <p>
+                            <a onclick="AddToCart(' @Html.DisplayFor(modelItem => item.ProductID)')" 
+                               class="btn btn-primary" role="button" id="AddToCart">
+                                Add To Cart
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
         }
 
 
