@@ -12,7 +12,7 @@
             @foreach (var item in Model)
             {
                 @*<p>@item.Colour</p>*@
-                <li>@Html.ActionLink(item.Colour, "ProductInformationsp", new { id = item.ProductSpecificationID })</li>}
+                <li>@Html.ActionLink(item.Colour, "ProductInformation", new { id = item.ProductID })</li>}
             @*<div class="color_btn pt-0">
                     <a href="">
                         <div></div>

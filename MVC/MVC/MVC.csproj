@@ -1481,6 +1481,7 @@
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\ProductList\Category.cshtml" />
     <Content Include="Views\ProductList\ProductInformation.cshtml" />
+    <Content Include="Views\ProductList\ProductInformationsp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

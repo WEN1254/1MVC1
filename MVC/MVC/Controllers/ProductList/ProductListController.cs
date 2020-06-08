@@ -26,6 +26,12 @@ namespace MVC.Controllers
             var data = productCategory.ProductSpecifications.ToList();
             return View(data);
         }
+        public ActionResult ProductInformationsp(int id)
+        {
+            var productCategory = db.ProductSpecifications.Find(id);
+            var data = productCategory.Product.ProductSpecifications.ToList();
+            return View(data);
+        }
         public ActionResult New(string sortOrder)
         {
             var queryresult = _ProductBLO.GetAll();
