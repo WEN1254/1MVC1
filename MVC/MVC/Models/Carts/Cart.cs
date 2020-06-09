@@ -36,7 +36,7 @@ namespace MVC.Models.Carts
         public bool AddProduct(int ProductId)
         {
             var findItem = this.cartItems
-                            .Where(s => s.Id == ProductId)
+                            .Where(s => s.PSID== ProductId)
                             .Select(s => s)
                             .FirstOrDefault();
 
@@ -80,6 +80,7 @@ namespace MVC.Models.Carts
             //將Product轉為CartItem
             var cartItem = new Models.Carts.CartItem()
             {
+                PSID=product.ProductSpecificationID,
                 Id = product.ProductID,
                 Name = product.ProductName,
                 Price = product.Price,

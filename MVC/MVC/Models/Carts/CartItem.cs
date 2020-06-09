@@ -8,6 +8,7 @@ namespace MVC.Models.Carts
     [Serializable] //可序列化
     public class CartItem  //購物車內單一商品類別
     {
+        public int PSID { get; set; }
         //商品編號
         public int Id { get; set; }
 
