@@ -1,7 +1,9 @@
 ﻿@model MVC.Models.Database.Customer
 @using MVC.Models
 
-
+@section topCSS{
+    
+}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
     <a class="navbar-brand col-1" href="~/Home/Index">
@@ -105,14 +107,14 @@
                 </ul>
             </li>
             <li class="nav-item active">
-               @Html.ActionLink("Lighting", "Category", "ProductList", new { type = 18 }, new {@class="nav-link"})<span class="sr-only">(current)</span> 
+                @Html.ActionLink("Lighting", "Category", "ProductList", new { type = 18 }, new { @class = "nav-link" })<span class="sr-only">(current)</span>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="~/AboutUs/Index">About<span class="sr-only">(current)</span></a>
             </li>
         </ul>
         <div class="nav_icon ">
-            <a href="" data-toggle="modal" data-target="#staticBackdrop"><i class="fas fa-user"></i></a>
+            <a href="" data-toggle="modal" data-target="#LoginModal"><i class="fas fa-user"></i></a>
             <a href="" class="search"><i class="fas fa-search"></i></a>
             <button id="btn" for="check" onclick="shop()">
                 <i class="fas fa-shopping-cart"></i>
@@ -129,7 +131,7 @@
                 <button id="close" type="button" class="close" aria-label="Close" onclick="shop()">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <div id="Cart" >
+                <div id="Cart">
                     @Html.Partial("_CartPartial")
                 </div>
             </div>
@@ -143,40 +145,73 @@
 
 </nav>
 
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+<div class="modal fade" id="RegisterModel" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
      aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            
+
             <div class="modal-body">
                 <img src="~/Assest/img/下載.png" alt="">
-                @using (Html.BeginForm("Create", "CRUD", FormMethod.Post))
-                {
-                    @Html.AntiForgeryToken()
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
                 <div class="account">
-                    <input class="mx-auto" type="text" placeholder="請輸入電子信箱" name="Email">
-                    <input type="password" class="mx-auto" placeholder="請輸入8-14碼密碼" name="Password">
-                    <input class="mx-auto" type="tel" placeholder="請輸入電話號碼" name="Phone">
-                    <input class="mx-auto" type="text" placeholder="姓名" name="CustomerName">
-                    <input class="mx-auto" type="date" placeholder="請選擇生日日期" name="Birthday">
+                    <input class="mx-auto" type="text" placeholder="請輸入電子信箱" v-model="RegisterEmail">
+                    <input type="password" class="mx-auto" placeholder="請輸入8-14碼密碼" v-model="RegisterPassword">
+                    <input class="mx-auto" type="tel" placeholder="請輸入電話號碼" v-model="RegisterPhone">
+                    <input class="mx-auto" type="text" placeholder="姓名" v-model="RegisterCustomerName">
+                    <input class="mx-auto"type="date" placeholder="請選擇生日日期" v-model="RegisterBirthday">
                 </div>
 
-                <div class="sign_up">
-                    <p>沒有帳號嗎?<a href="">註冊</a></p>
-                </div>
-                <button class="login" type="submit">註冊</button>}
+                <button class="login" type="submit" v-on:click="Register">註冊</button>
+                @*<div class="linear">
+                                <span style="white-space:pre"></span><span class="line"></span>
+                                <span style="white-space:pre"></span><span class="txt">或</span>
+                                <span style="white-space:pre"></span> <span class="line"></span>
+                            </div>
+                            <div class="other">
+                                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                                <i class="fab fa-facebook col-4"></i>
+                    <i class="col-4 fab fa-google-plus"></i>
+                        </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="LoginModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="~/Assest/img/下載.png" alt="">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <input class="mx-auto" type="text" placeholder="請輸入電子信箱"v-model="LoginEmail">
+                <input type="password" class="mx-auto" placeholder="請輸入8-14碼密碼" v-model="LoginPassword">
+                <button class="login" v-on:click="LoginMethod">登入</button>
                 <div class="linear">
                     <span style="white-space:pre"></span><span class="line"></span>
                     <span style="white-space:pre"></span><span class="txt">或</span>
                     <span style="white-space:pre"></span> <span class="line"></span>
                 </div>
                 <div class="other">
-                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-                    @*<i class="fab fa-facebook col-4"></i>
-            <i class="col-4 fab fa-google-plus"></i>*@
+                    <i class="fab fa-facebook col-4"></i>
+                    <i class="col-4 fab fa-google-plus"></i>
+                </div>
+                <div class="sign_up">
+                    <p>沒有帳號嗎?<a data-dismiss="modal" aria-label="Close" href="" data-toggle="modal" data-target="#RegisterModel">註冊</a></p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+@section endJS{
+    
+    
+
+   
+}

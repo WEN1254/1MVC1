@@ -216,7 +216,38 @@ i {
     height: 36px;
 }
 
+#LoginModal .modal-body {
+    width: 520px;
+    height: 500px;
+    border: 1px solid #666;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    background-image: url(https://walpa.tw/upload/save_image/11191700_5dd3a12367c5f.jpg);
+    background-size: cover;
+}
 
+i {
+    width: 25px;
+    color: #000;
+}
+
+
+#LoginModal .modal-body .close {
+    outline: none;
+}
+
+#LoginModal .modal-body input {
+    font-size: 14px;
+    border: 1px solid#ccc;
+    border-radius: 3px;
+    background-color: rgba(246, 245, 245, 0.849);
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 258px;
+    height: 36px;
+}
 
 .modal-body img {
     width: 75px;

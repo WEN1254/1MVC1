@@ -21,5 +21,6 @@ namespace textapi.Models.OutUnitModels
     {
         public static string OK = "1";
         public static string Fail = "2";
+        public static string Error = "3";
     }
 }
