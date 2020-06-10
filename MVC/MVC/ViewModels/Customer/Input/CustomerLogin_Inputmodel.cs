@@ -7,8 +7,8 @@ namespace MVC.ViewModels.Customer
 {
     public class CustomerLogin_Inputmodel
     {
-        public string Email { get; set; }
+        public string LoginEmail { get; set; }
 
-        public string Password { get; set; }
+        public string LoginPassword { get; set; }
     }
 }

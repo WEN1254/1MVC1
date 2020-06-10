@@ -321,6 +321,7 @@ i {
 
 li.drop-down-menu ul {
     display: none;
+    font-family:sans-serif;
 }
 
 li.drop-down-menu:hover > ul, .hidden:hover {

@@ -7,10 +7,10 @@ namespace MVC.ViewModels.Customer.Output
 {
     public class CustomerRegister_Outputmodel
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string CustomerName { get; set; }
-        public string Birthday { get; set; }
-        public string Phone { get; set; }
+        public string RegisterEmail { get; set; }
+        public string RegisterPassword { get; set; }
+        public string RegisterCustomerName { get; set; }
+        public string RegisterBirthday { get; set; }
+        public string RegisterPhone { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -55,15 +54,23 @@
                 $('div#Cart').html(msg);
             });
         }
+        let change = () =>
+        {
+            let oSpan = document.querySelector("h2");
+            let content = document.getElementById("wavycontent").innerText;
+            oSpan.setAttribute("data-before", content);
+        };
+</script>
 
-    </script>
+  
 </head>
+
 <body>
 
     @Html.Partial("_NavbarPartial", new MVC.Models.Database.Customer())
 
     @RenderBody()
-
+    
 
     @Html.Partial("_FooterPartial")
 

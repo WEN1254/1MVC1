@@ -58,7 +58,7 @@ namespace MVC.Models.Repository.BussinessLogicLayer
             }).ToList();
 
 
-            if (result[0].Password == Input.Password)
+            if (result.Count!=0)
             {
                 return result;
             }

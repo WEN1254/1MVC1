@@ -41,7 +41,7 @@ namespace MVC.Models.Repository.BussinessLogicLayer
 
             List<CustomerRegister_Outputmodel> model;
 
-            var CheckAccount = _CustomerDAO.CheckEmail(input.Email);
+            var CheckAccount = _CustomerDAO.CheckEmail(input.RegisterEmail);
 
             var queryresult = _CustomerDAO.Register(input);
 
@@ -49,11 +49,11 @@ namespace MVC.Models.Repository.BussinessLogicLayer
             {
                 model = queryresult.Select(x => new CustomerRegister_Outputmodel
                 {
-                    CustomerName = x.CustomerName,
-                    Password = x.Password,
-                    Email = x.Email,
-                    Birthday = x.Birthday,
-                    Phone = x.Phone,
+                    RegisterCustomerName = x.CustomerName,
+                    RegisterPassword = x.Password,
+                    RegisterEmail = x.Email,
+                    RegisterBirthday = x.Birthday,
+                    RegisterPhone = x.Phone,
 
                 }).ToList();
 

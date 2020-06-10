@@ -69,18 +69,18 @@
     position: relative;
 }
 
-    .wavy h2 {
+    .wavy #wavycontent {
         /*position: absolute;
-        transform: translate(-50%, -50%);*/
+        */
         font-size: 8em;
+        position: relative;
+        color: transparent;
+        -webkit-text-stroke: 2px #000;
     }
 
-        .wavy h2:nth-child(1) {
-            color: transparent;
-            -webkit-text-stroke: 2px #000;
-        }
-
-        .wavy h2:nth-child(2) {
+        .wavy #wavycontent::before {
+            content: attr(data-before);
+            position: absolute;
             color: #000;
             animation: animate 4s ease-in-out infinite;
         }

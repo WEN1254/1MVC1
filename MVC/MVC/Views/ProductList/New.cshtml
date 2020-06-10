@@ -4,14 +4,10 @@
 
 <div class="container">
     <div class="product_name">
-        <div class="product_name_home">
-            <a href="#">Home</a>
-            <span>Bestselling Modern Furniture Designs</span>
-        </div>
         <div class="wavy">
-            <h2> New</h2>
-
+            <h2 id="wavycontent">New</h2>
         </div>
+        
         <div class="storeby">
             <input type="checkbox" id="check_order">
             <span><button for="check_order" onclick="match()">SORT BY BEST MATCH</button></span>
@@ -28,9 +24,6 @@
                 <br>
                 <button>@Html.ActionLink("RESET", "New", new { sortOrder = ViewBag.ResetParm })</button>
             </div>
-
-
-
         </div>
     </div>
     <div class="product_list row">

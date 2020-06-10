@@ -13,10 +13,10 @@ namespace MVC.Models.Repository.DatabaseLogicLayer
 {
     public class LoginDAO
     {
-        private string SQLConnectionStr = ConfigurationManager.ConnectionStrings["mvcContext"].ConnectionString;
+        private string SQLConnectionStr = ConfigurationManager.ConnectionStrings["MVCContext"].ConnectionString;
         public IEnumerable<Customer> GetAllMember()
         {
-            string SQLcommand = @"SELECT * FROM Customer";
+            string SQLcommand = @"SELECT * FROM Customers";
 
             IEnumerable<Customer> result;
 
@@ -29,36 +29,36 @@ namespace MVC.Models.Repository.DatabaseLogicLayer
         }
         public IEnumerable<Customer> Login_CheckAccount(CustomerLogin_Inputmodel Input)
         {
-            string Sqlcommand = @" SELECT Email from Customer where Email=@L1";
+            string Sqlcommand = @" SELECT Email from Customers where Email=@L1";
 
             IEnumerable<Customer> result;
             using (SqlConnection conn = new SqlConnection(SQLConnectionStr))
             {
-                result = conn.Query<Customer>(Sqlcommand, new { L1 = Input.Email });
+                result = conn.Query<Customer>(Sqlcommand, new { L1 = Input.LoginEmail });
             }
             return result;
         }
         public IEnumerable<Customer> Login_CheckPassword(CustomerLogin_Inputmodel Input)
         {
-            string Sqlcommand = @" SELECT Password from Customer where Password=@L1";
+            string Sqlcommand = @" SELECT Password from Customers where Password=@L1";
 
             IEnumerable<Customer> result;
             using (SqlConnection conn = new SqlConnection(SQLConnectionStr))
             {
-                result = conn.Query<Customer>(Sqlcommand, new { L1 = Input.Email });
+                result = conn.Query<Customer>(Sqlcommand, new { L1 = Input.LoginPassword });
             }
             return result;
         }
         public IEnumerable<Customer> Register(CustomerRegister_Inputmodel Input)
         {
-            string Sqlcommand = @" INSERT INTO Customer(Email,Password,Birthday,CustomerName,Phone)
+            string Sqlcommand = @" INSERT INTO Customers(Email,Password,Birthday,CustomerName,Phone)
                                    VALUES (@c1,@c2,@c3,@c4,@c5)";
 
             IEnumerable<Customer> result;
 
             using (SqlConnection conn = new SqlConnection(SQLConnectionStr))
             {
-                result = conn.Query<Customer>(Sqlcommand, new { c1 = Input.Email, c2 = Input.Password, c3 = Input.Birthday, c4 = Input.CustomerName, c5 = Input.Phone });
+                result = conn.Query<Customer>(Sqlcommand, new { c1 = Input.RegisterEmail, c2 = Input.RegisterPassword, c3 = Input.RegisterBirthday, c4 = Input.RegisterCustomerName, c5 = Input.RegisterPhone });
             }
             return result;
         }
@@ -66,7 +66,7 @@ namespace MVC.Models.Repository.DatabaseLogicLayer
         {
 
 
-            string Sqlcommand = @" SELECT * from Customer Where Email=@Email";
+            string Sqlcommand = @" SELECT * from Customers Where Email=@Email";
 
 
 
