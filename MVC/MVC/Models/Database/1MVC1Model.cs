@@ -8,7 +8,7 @@ namespace MVC.Models.Database
     public partial class _1MVC1Model : DbContext
     {
         public _1MVC1Model()
-            : base("name=mvcContext")
+            : base("name=MVCContext")
         {
         }
 
@@ -50,11 +50,6 @@ namespace MVC.Models.Database
             modelBuilder.Entity<MainClassification>()
                 .HasMany(e => e.SmallClassifications)
                 .WithRequired(e => e.MainClassification)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.Orders)
-                .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()

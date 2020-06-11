@@ -10,25 +10,23 @@ namespace MVC.Models.Database
     {
         public int OrderID { get; set; }
 
-        public int ProductID { get; set; }
-
         public int CustomerID { get; set; }
 
-        [Required]
-        [StringLength(20)]
-        public string BuyAmount { get; set; }
+        public int BuyAmount { get; set; }
 
         [Required]
         public string BuyPrice { get; set; }
 
         public int ProductSpecificationID { get; set; }
 
+        [Required]
+        [StringLength(50)]
+        public string Address { get; set; }
+
         [Column(TypeName = "date")]
         public DateTime OrderIShelveDate { get; set; }
 
         public virtual Customer Customer { get; set; }
-
-        public virtual Product Product { get; set; }
 
         public virtual ProductSpecification ProductSpecification { get; set; }
     }
