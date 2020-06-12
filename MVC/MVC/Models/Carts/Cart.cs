@@ -92,6 +92,33 @@ namespace MVC.Models.Carts
             this.cartItems.Add(cartItem);
             return true;
         }
+
+        //移除一筆Product，使用ProductId
+        public bool RemoveProduct(int ProductId)
+        {
+            var findItem = this.cartItems
+                            .Where(s => s.PSID == ProductId)
+                            .Select(s => s)
+                            .FirstOrDefault();
+
+            //判斷相同Id的CartItem是否已經存在購物車內
+            if (findItem == default(Models.Carts.CartItem))
+            {
+                //不存在購物車內，不需做任何動作
+            }
+            else
+            {   //存在購物車內，將商品移除
+                this.cartItems.Remove(findItem);
+            }
+            return true;
+        }
+
+        //清空購物車
+        public bool ClearCart()
+        {
+            this.cartItems.Clear();
+            return true;
+        }
         public List<Models.Database.OrderDetail> ToOrderDetailList(int orderId)
         {
             var result = new List<Models.Database.OrderDetail>();

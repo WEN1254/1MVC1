@@ -27,5 +27,19 @@ namespace MVC.Controllers.Cart
             currentCart.AddProduct(id);
             return PartialView("_CartPartial");
         }
+        public ActionResult RemoveFromCart(int id)
+        {
+            var currentCart = Models.Carts.Operation.GetCurrentCart();
+            currentCart.RemoveProduct(id);
+            return PartialView("_CartPartial");
+        }
+
+        //清空購物車，並回傳購物車頁面
+        public ActionResult ClearCart()
+        {
+            var currentCart = Models.Carts.Operation.GetCurrentCart();
+            currentCart.ClearCart();
+            return PartialView("_CartPartial");
+        }
     }
 }

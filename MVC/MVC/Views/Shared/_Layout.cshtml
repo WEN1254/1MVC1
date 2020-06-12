@@ -54,6 +54,31 @@
                 $('div#Cart').html(msg);
             });
         }
+         //移除購物車內商品
+        function RemoveFromCart(productId) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("RemoveFromCart", "Cart")',
+                data: { id: productId }
+            })
+                .done(function (msg) {
+                    //將回傳的購物車頁面 填入 li#Cart
+                    $('div#Cart').html(msg);
+                });
+        }
+
+        //清空購物車內所有商品
+        function ClearCart() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ClearCart", "Cart")',
+                data: {}
+            })
+            .done(function (msg) {
+                //將回傳的購物車頁面 填入 li#Cart
+                $('div#Cart').html(msg);
+            });
+        }
         let change = () =>
         {
             let oSpan = document.querySelector("h2");
