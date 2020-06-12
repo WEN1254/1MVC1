@@ -11,7 +11,7 @@ namespace MVC.Models.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ProductSpecification()
         {
-            Orders = new HashSet<Order>();
+            OrderDetails = new HashSet<OrderDetail>();
         }
 
         public int ProductSpecificationID { get; set; }
@@ -27,8 +27,11 @@ namespace MVC.Models.Database
         [StringLength(60)]
         public string Image { get; set; }
 
+        [StringLength(60)]
+        public string ColourImg { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
         public virtual Product Product { get; set; }
     }

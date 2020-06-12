@@ -88,12 +88,25 @@ namespace MVC.Models.Carts
                 color=product.Colour,
                 Quantity = 1
             };
-
             //加入CartItem至購物車
             this.cartItems.Add(cartItem);
             return true;
         }
-
+        public List<Models.Database.OrderDetail> ToOrderDetailList(int orderId)
+        {
+            var result = new List<Models.Database.OrderDetail>();
+            foreach (var cartItem in this.cartItems)
+            {
+                result.Add(new Models.Database.OrderDetail()
+                {
+                    ProductSpecificationID = cartItem.PSID,
+                    Price = cartItem.Price,
+                    BuyQuantity = cartItem.Quantity,
+                    OrderID = orderId
+                });
+            }
+            return result;
+        }
         IEnumerator<CartItem> IEnumerable<CartItem>.GetEnumerator()
         {
             return this.cartItems.GetEnumerator();
