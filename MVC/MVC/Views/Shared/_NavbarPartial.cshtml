@@ -113,9 +113,9 @@
                 <a class="nav-link" href="~/AboutUs/Index">About<span class="sr-only">(current)</span></a>
             </li>
         </ul>
-        <div class="nav_icon ">
-            <a href="" data-toggle="modal" data-target="#LoginModal"><i class="fas fa-user"></i></a>
-            <a href="" class="search"><i class="fas fa-search"></i></a>
+        <div class="nav_icon" id="UserType">
+            <a v-on:click="UserTypeMethod"><i class="fas fa-user"></i></a>
+            <a href="~/User/UserPage" class="search"><i class="fas fa-search"></i></a>
             <button id="btn" for="check" onclick="shop()">
                 <i class="fas fa-shopping-cart"></i>
             </button>
@@ -211,7 +211,4 @@
 
 @section endJS{
     
-    
-
-   
 }

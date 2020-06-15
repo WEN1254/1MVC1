@@ -40,7 +40,7 @@ namespace MVC.Models.Repository.DatabaseLogicLayer
         }
         public IEnumerable<Customer> Login_CheckPassword(CustomerLogin_Inputmodel Input)
         {
-            string Sqlcommand = @" SELECT Password from Customers where Password=@L1";
+            string Sqlcommand = @" SELECT CustomerID,Password from Customers where Password=@L1";
 
             IEnumerable<Customer> result;
             using (SqlConnection conn = new SqlConnection(SQLConnectionStr))
@@ -49,6 +49,7 @@ namespace MVC.Models.Repository.DatabaseLogicLayer
             }
             return result;
         }
+        
         public IEnumerable<Customer> Register(CustomerRegister_Inputmodel Input)
         {
             string Sqlcommand = @" INSERT INTO Customers(Email,Password,Birthday,CustomerName,Phone)
@@ -70,6 +71,16 @@ namespace MVC.Models.Repository.DatabaseLogicLayer
 
 
 
+            IEnumerable<Customer> result;
+            using (SqlConnection conn = new SqlConnection(SQLConnectionStr))
+            {
+                result = conn.Query<Customer>(Sqlcommand, new { CustomerEmail = Email });
+            }
+            return result;
+        }
+        public IEnumerable<Customer> Login_GetCustomer(string Email)
+        {
+            string Sqlcommand = @" SELECT * from Customers Where Email=@Email";
             IEnumerable<Customer> result;
             using (SqlConnection conn = new SqlConnection(SQLConnectionStr))
             {

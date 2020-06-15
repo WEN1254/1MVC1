@@ -5,11 +5,11 @@ using System.Web;
 
 namespace MVC.ViewModels.Customer.Output
 {
-    public class CustomerLogin_Outputmodel
+    public class GetCustomerOutput
     {
-        public int CustomerID { get; set; }
         public string Email { get; set; }
-
-        public string Password { get; set; }
+        public string CustomerName { get; set; }
+        public string Phone { get; set; }
+        public string BirthDay { get; set; }
     }
 }

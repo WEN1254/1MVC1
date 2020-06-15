@@ -1,4 +1,5 @@
-﻿var a = new Vue({
+﻿var UserType = [];
+var a = new Vue({
     el: '#LoginModal',
     data: {
         LoginEmail: '',
@@ -23,6 +24,8 @@
                 success: function (response) {
                     console.log(response);
                     if (response.StatusCode == '1') {
+                        UserType.push({ data })
+                        localStorage.setItem("LoginUser", data.LoginEmail);
                         window.location.href = '/Home/Index';
                     }
                     else if (response.StatusCode == '2') {
@@ -32,24 +35,17 @@
                     }
                 }
             });
-
-
+        },
+        LoginTypeMethod: function () {
+            if (localStorage.setItem("LoginUser") != null) {
+                window.location.href = '/User/UserPage';
+            }
+            else {
+                $("#LoginModal").modal('show');
+            }
         }
 
     },
-    watch: {
-        check: function () {
-            if (this.account.length < 5 || this.account.length > 10) {
-                return errorMsg = `請輸入5~10碼`
-            }
-        },
-        checkPassword: function () {
-            if (this.password.length < 5 || this.password.length > 10) {
-                return PassworderrorMsg = `請輸入5~10碼`
-            }
-        }
-
-    }
 })
 
 
