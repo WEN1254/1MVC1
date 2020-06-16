@@ -3,7 +3,7 @@
     //取得當前購物車所有內容
     var currentCart = MVC.Models.Carts.Operation.GetCurrentCart();
 }
-    
+
 
 
 <h3>結帳</h3>
@@ -21,15 +21,15 @@
     <tbody>
         @foreach (var cartitem in currentCart)
         {
-        <tr>
-            <th class="pic" scope="row">
-                <img src="~/Assest/img/ProductImg/@cartitem.Image" alt="">
-            </th>
-            <td>@cartitem.Name</td>
-            <td>$@cartitem.Price 元</td>
-            <td>@cartitem.Quantity</td>
-            <td>$@cartitem.Amount 元</td>
-        </tr>
+            <tr>
+                <th class="pic" scope="row">
+                    <img src="~/Assest/img/ProductImg/@cartitem.Image" alt="">
+                </th>
+                <td>@cartitem.Name</td>
+                <td>$@cartitem.Price 元</td>
+                <td>@cartitem.Quantity</td>
+                <td>$@cartitem.Amount 元</td>
+            </tr>
         }
         <tr>
             <th scope="row">總價錢</th>
@@ -42,22 +42,4 @@
     </tbody>
 </table>
 
-@section topCSS{
-
-
-    <style type="text/css">
-        * {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-        }
-
-        .pic {
-            width: 100px;
-        }
-        .pic img{
-            width:100%;
-        }
-    </style>
-}
 
