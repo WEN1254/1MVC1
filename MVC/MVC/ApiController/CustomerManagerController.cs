@@ -120,5 +120,22 @@ namespace MVC.ApiControllers
                 }
 
         }
+
+        [HttpPost]
+        public OutApiModels GetCustomer([FromBody] GetCustomerInput input)
+        {
+            var queryresult = _LoginBLO.Login_GetCustomer(input);
+            OutApiModels error = new OutApiModels(APIStatuCode.Fail, queryresult, "FAILS");
+            OutApiModels success = new OutApiModels(APIStatuCode.OK, queryresult, string.Empty);
+
+            if (queryresult == null)
+            {
+                return error;
+            }
+            else
+            {
+                return success;
+            }
+        }
     }
 }

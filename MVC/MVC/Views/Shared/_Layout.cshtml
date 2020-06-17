@@ -95,7 +95,7 @@
     @Html.Partial("_NavbarPartial", new MVC.Models.Database.Customer())
 
     @RenderBody()
-    
+
 
     @Html.Partial("_FooterPartial")
 
@@ -103,6 +103,9 @@
     @Scripts.Render("~/bundles/bootstrap")
     <script src="~/Assest/js/Controller/Register.js"></script>
     <script src="~/Assest/js/Controller/Login.js"></script>
+    <script src="~/Assest/js/GetCustomerInfo.js"></script>
+    <script src="~/Assest/js/LoginType.js"></script>
+    
     @*@RenderSection("scripts", required: false)*@
 
     @RenderSection("endJS", required: false)

@@ -190,6 +190,7 @@
     <Compile Include="Controllers\CRUDController.cs" />
     <Compile Include="Controllers\IntroductionController\SofasIntroductionController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\Carts\Cart.cs" />
     <Compile Include="Models\Carts\CartItem.cs" />
     <Compile Include="Models\Carts\Operation.cs" />
@@ -221,8 +222,10 @@
     <Compile Include="ViewModels\Customer\Input\CustomerLogin_Inputmodel.cs" />
     <Compile Include="ViewModels\Customer\Input\CustomerRegister_Inputmodel.cs" />
     <Compile Include="ViewModels\Customer\Input\Customer_GetAll_OutModel.cs" />
+    <Compile Include="ViewModels\Customer\Input\GetCustomerInput.cs" />
     <Compile Include="ViewModels\Customer\Output\CustomerLogin_Outputmodel.cs" />
     <Compile Include="ViewModels\Customer\Output\CustomerRegister_Outputmodel.cs" />
+    <Compile Include="ViewModels\Customer\Output\GetCustomerOutput.cs" />
     <Compile Include="ViewModels\ProductListViewModel.cs" />
     <Content Include="Assest\css\_NavbarPartial .css" />
     <Content Include="Assest\img\ColourCicle\Blush.PNG" />
@@ -1330,7 +1333,10 @@
     <Content Include="Assest\img\登入背景.jpg" />
     <Content Include="Assest\js\Controller\Login.js" />
     <Content Include="Assest\js\Controller\Register.js" />
+    <Content Include="Assest\js\GetCustomerInfo.js" />
     <Content Include="Assest\js\jquery-3.4.1.min.js" />
+    <Content Include="Assest\js\LoginType.js" />
+    <Content Include="Assest\js\tab.js" />
     <Content Include="Assest\js\_NavbarPartial.js" />
     <Content Include="Assest\css\slick.css" />
     <Content Include="Assest\css\Carousel.css" />
@@ -1550,6 +1556,7 @@
     <Content Include="Views\ProductList\Category.cshtml" />
     <Content Include="Views\ProductList\ProductInformation.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\User\UserPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

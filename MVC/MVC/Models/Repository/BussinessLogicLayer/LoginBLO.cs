@@ -1,5 +1,6 @@
 ﻿using MVC.Models.Repository.DatabaseLogicLayer;
 using MVC.ViewModels.Customer;
+using MVC.ViewModels.Customer.Input;
 using MVC.ViewModels.Customer.Output;
 using System;
 using System.Collections.Generic;
@@ -67,6 +68,22 @@ namespace MVC.Models.Repository.BussinessLogicLayer
                 return null;
             }
 
+
+
+        }
+        public List<GetCustomerOutput> Login_GetCustomer(GetCustomerInput Input)
+        {
+            List<GetCustomerOutput> result;
+            var queryresult = _LoginDAO.Login_GetCustomer(Input.LoginUser);
+
+            result = queryresult.Select(x => new GetCustomerOutput
+            {
+                Email = x.Email,
+                CustomerName = x.CustomerName,
+                Phone = x.Phone,
+                BirthDay = x.Birthday
+            }).ToList();
+            return result;
 
 
         }

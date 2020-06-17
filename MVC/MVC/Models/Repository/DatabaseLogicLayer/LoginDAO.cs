@@ -77,5 +77,15 @@ namespace MVC.Models.Repository.DatabaseLogicLayer
             }
             return result;
         }
+        public IEnumerable<Customer> Login_GetCustomer(string Email)
+        {
+            string Sqlcommand = @" SELECT * from Customers Where Email=@CustomerEmail";
+            IEnumerable<Customer> result;
+            using (SqlConnection conn = new SqlConnection(SQLConnectionStr))
+            {
+                result = conn.Query<Customer>(Sqlcommand, new { CustomerEmail = Email });
+            }
+            return result;
+        }
     }
 }
