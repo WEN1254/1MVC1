@@ -190,7 +190,6 @@
     <Compile Include="Controllers\CRUDController.cs" />
     <Compile Include="Controllers\IntroductionController\SofasIntroductionController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Models\Carts\Cart.cs" />
     <Compile Include="Models\Carts\CartItem.cs" />
     <Compile Include="Models\Carts\Operation.cs" />
@@ -1548,7 +1547,6 @@
     <Content Include="Views\CRUD\Index.cshtml" />
     <Content Include="Views\ProductList\Bestsellers.cshtml" />
     <Content Include="Views\ProductList\New.cshtml" />
-    <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\ProductList\Category.cshtml" />
     <Content Include="Views\ProductList\ProductInformation.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />

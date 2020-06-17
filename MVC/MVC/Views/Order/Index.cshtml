@@ -7,7 +7,7 @@
 
 
 <h3>結帳</h3>
- 
+
 
 
 <div class="col-12">
@@ -47,59 +47,59 @@
     </table>
 
 
+    <button type="button" class="btn btn-outline-info" id="local" onclick="orderChange()">貨到付款</button>
 
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal">
+        信用卡
+    </button>
 
     <div class="col-12" id="order_change">
 
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-        <div class="form-horizontal">
-            <h4>收貨人資訊</h4>
-            <hr />
+            <div class="form-horizontal">
+                <h4>收貨人資訊</h4>
+                <hr />
 
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.RecieverName, htmlAttributes: new { @class = "control-label col-12" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.RecieverName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RecieverName, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RecieverName, htmlAttributes: new { @class = "control-label col-12" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.RecieverName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.RecieverName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RecieverPhone, htmlAttributes: new { @class = "control-label col-12" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.RecieverPhone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.RecieverPhone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RecieverAddress, htmlAttributes: new { @class = "control-label col-12" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.RecieverAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.RecieverAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="確定購買" class="btn btn-default" />
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.RecieverPhone, htmlAttributes: new { @class = "control-label col-12" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.RecieverPhone, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RecieverPhone, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.RecieverAddress, htmlAttributes: new { @class = "control-label col-12" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.RecieverAddress, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RecieverAddress, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <button type="button" class="btn btn-outline-info" id="local" onclick="orderChange()" >貨到付款</button>
-
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-success" data-toggle="modal"data-target="#exampleModal">
-                信用卡
-            </button>
-
-
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="確定購買" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
         }
 
     </div>
 
-    
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -113,6 +113,7 @@
                 </div>
                 <div class="order_modal-body">
                     <form class="col-12">
+                        <img src="https://www.klkidbooks.com.tw/upload_files/commodity-detail-02.jpg" alt="">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
                             <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
@@ -130,31 +131,13 @@
                             <div class="form-control cvc"></div>
                         </div>
 
-                        <button type="submit" class="btn btn-default">Pay</button>
+                        <button type="submit" onclick="onClick()" class="btn btn-default">Pay</button>
                     </form>
                 </div>
-                
+
             </div>
         </div>
     </div>
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
 
     @section endJS{
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -205,10 +188,10 @@
                 // const submitButton = document.querySelector('button[type="submit"]')
                 if (update.canGetPrime) {
                     // submitButton.removeAttribute('disabled')
-                    $('button[type="submit"]').removeAttr('disabled')
+                    $('button[onclick="onClick()"]').removeAttr('disabled')
                 } else {
                     // submitButton.setAttribute('disabled', true)
-                    $('button[type="submit"]').attr('disabled', true)
+                    $('button[onclick="onClick()"]').attr('disabled', true)
                 }
 
 
@@ -249,8 +232,53 @@
                     setNumberFormGroupToNormal('.cvc-group')
                 }
             })
+                 function onClick() {
+                     event.preventDefault()
 
-            $('form').on('submit', function (event) {
+                     // fix keyboard issue in iOS device
+                     forceBlurIos()
+
+                     const tappayStatus = TPDirect.card.getTappayFieldsStatus()
+                     console.log(tappayStatus)
+
+                     // Check TPDirect.card.getTappayFieldsStatus().canGetPrime before TPDirect.card.getPrime
+                     if (tappayStatus.canGetPrime === false) {
+                         alert('can not get prime')
+                         return
+                     }
+
+                     // Get prime
+                     TPDirect.card.getPrime(function (result) {
+                         if (result.status !== 0) {
+                             alert('get prime error ' + result.msg)
+                             return
+                         }
+                         alert('get prime 成功，prime: ' + result.card.prime)
+                         var command = `
+                                                Use following command to send to server \n\n
+                                                curl -X POST https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime \\
+                                                -H 'content-type: application/json' \\
+                                                -H 'x-api-key: partner_PtIw8fJEjXZLj9CE3tzl8dbwIidETEVODzmyBDTUDr51HyNRV2If4SDI' \\
+                                                -d '{
+                                                    "partner_key": "partner_PtIw8fJEjXZLj9CE3tzl8dbwIidETEVODzmyBDTUDr51HyNRV2If4SDI",
+                                                    "prime": "${result.card.prime}",
+                                                    "amount": "${currentCart.TotalAmount}",
+                                                    "merchant_id": "aa88658865_CTBC",
+                                                    "details": "Some item",
+                                                    "cardholder": {
+                                                        "phone_number": "+886923456789",
+                                                        "name": "王小明",
+                                                        "email": "LittleMing@Wang.com",
+                                                        "zip_code": "100",
+                                                        "address": "台北市天龍區芝麻街1號1樓",
+                                                        "national_id": "A123456789"
+                                                    }
+                                                }'`.replace(/                /g, '')
+                         document.querySelector('#curl').innerHTML = command
+                     })
+        }
+
+            @*$('form').on('submit', function (event) {
                 event.preventDefault()
 
                 // fix keyboard issue in iOS device
@@ -273,28 +301,28 @@
                     }
                     alert('get prime 成功，prime: ' + result.card.prime)
                     var command = `
-                                        Use following command to send to server \n\n
-                                        curl -X POST https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime \\
-                                        -H 'content-type: application/json' \\
-                                        -H 'x-api-key: partner_PtIw8fJEjXZLj9CE3tzl8dbwIidETEVODzmyBDTUDr51HyNRV2If4SDI' \\
-                                        -d '{
-                                            "partner_key": "partner_PtIw8fJEjXZLj9CE3tzl8dbwIidETEVODzmyBDTUDr51HyNRV2If4SDI",
-                                            "prime": "${result.card.prime}",
-                                            "amount": "${currentCart.TotalAmount}",
-                                            "merchant_id": "aa88658865_CTBC",
-                                            "details": "Some item",
-                                            "cardholder": {
-                                                "phone_number": "+886923456789",
-                                                "name": "王小明",
-                                                "email": "LittleMing@Wang.com",
-                                                "zip_code": "100",
-                                                "address": "台北市天龍區芝麻街1號1樓",
-                                                "national_id": "A123456789"
-                                            }
-                                        }'`.replace(/                /g, '')
+                                                Use following command to send to server \n\n
+                                                curl -X POST https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime \\
+                                                -H 'content-type: application/json' \\
+                                                -H 'x-api-key: partner_PtIw8fJEjXZLj9CE3tzl8dbwIidETEVODzmyBDTUDr51HyNRV2If4SDI' \\
+                                                -d '{
+                                                    "partner_key": "partner_PtIw8fJEjXZLj9CE3tzl8dbwIidETEVODzmyBDTUDr51HyNRV2If4SDI",
+                                                    "prime": "${result.card.prime}",
+                                                    "amount": "${currentCart.TotalAmount}",
+                                                    "merchant_id": "aa88658865_CTBC",
+                                                    "details": "Some item",
+                                                    "cardholder": {
+                                                        "phone_number": "+886923456789",
+                                                        "name": "王小明",
+                                                        "email": "LittleMing@Wang.com",
+                                                        "zip_code": "100",
+                                                        "address": "台北市天龍區芝麻街1號1樓",
+                                                        "national_id": "A123456789"
+                                                    }
+                                                }'`.replace(/                /g, '')
                     document.querySelector('#curl').innerHTML = command
                 })
-            })
+            })*@
 
             function setNumberFormGroupToError(selector) {
                 $(selector).addClass('has-error')
