@@ -3,56 +3,67 @@
     ViewBag.Title = "UserPage";
 }
 
-<div class="col-md-12 ">
+<div id="UserData">
     <b-card no-body>
         <b-tabs card>
-            <b-tab title="Tab 1" active>
+            <b-tab title="會員資料" active>
                 <div class="card card-user">
                     <div class="card-header">
                         <h5 class="card-title">Edit Profile</h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" id="UserData">
                         <form>
-                            <div class="row"v-for="item in UserData">
+                            <div class="row">
                                 <div class="col-md-6 px-1 ">
                                     <div class="form-group">
                                         <label>Email address</label>
-                                        <input type="email" class="form-control" placeholder="Email"v-model="Email"value={{item.Email}}>
+                                        <el-input class="form-control">{{UserData[0].Email}}</el-input>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 px-1 ">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input class="form-control" placeholder="Password"
+                                               v-model="UserData[0].Password">
                                     </div>
                                 </div>
                                 <div class="col-md-6 px-1 ">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" class="form-control" placeholder="Name"v-model="CustomerName"value={{item.CustomerName}}>
+                                        <input type="text" class="form-control" placeholder="Name"
+                                               v-model="UserData[0].CustomerName ">
                                     </div>
                                 </div>
                                 <div class="col-md-6 px-1 ">
                                     <div class="form-group">
                                         <label>Phone</label>
-                                        <input type="tel" class="form-control" placeholder="tel"v-model="Phone"value={{item.Phone}}>
+                                        <input type="tel" class="form-control" placeholder="tel"
+                                               v-model="UserData[0].Phone ">
                                     </div>
                                 </div>
                                 <div class="col-md-6 px-1 ">
                                     <div class="form-group">
                                         <label>BirthDay</label>
-                                        <input type="date" class="form-control"v-model="BirthDay"value={{item.BirthDay}}>
+                                        <input type="date" class="form-control" v-model="UserData[0].BirthDay ">
                                     </div>
                                 </div>
                                 <div class="update ml-auto mr-auto">
-                                    <button type="submit" class="btn btn-primary btn-round">
+                                    <el-input type="submit" class="btn btn-primary btn-round" v-on:click="Replace">
                                         Update
                                         Profile
-                                    </button>
+                                    </el-input>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </b-tab>
-            <b-tab title="Tab 2">
-                <b-card-text>123</b-card-text>
-            </b-tab>
+            <b-tab title="Tab 2"><b-card-text>Tab contents 2</b-card-text></b-tab>
+
         </b-tabs>
     </b-card>
 </div>
 
+@section endJS{
+    <script src="~/Assest/js/Controller/GetCustomerInfo.js"></script>
+}

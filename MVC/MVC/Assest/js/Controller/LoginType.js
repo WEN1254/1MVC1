@@ -1,9 +1,9 @@
 ﻿var UserType = [];
-var a = new Vue({
+var LoginVue = new Vue({
     el: '#UserType',
     methods: {
         LoginTypeMethod: function () {
-            if (localStorage.setItem("UserType") != null) {
+            if (localStorage.getItem("LoginUser") != null) {
                 window.location.href = '/User/UserPage';
             }
             else {
@@ -14,4 +14,6 @@ var a = new Vue({
     },
 })
 
-
+document.querySelector('#loginBtn').addEventListener('click', function () {
+    globalThis.LoginVue.LoginTypeMethod();
+});

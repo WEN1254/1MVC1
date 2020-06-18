@@ -71,6 +71,13 @@
 @section endJS{
     <script src="~/Assest/js/ProductList.js"></script>
     <script type="text/javascript"></script>
+    <script type="text/javascript">
+        let change = () => {
+            let oSpan = document.querySelector("h2");
+            let content = document.getElementById("wavycontent").innerText;
+            oSpan.setAttribute("data-before", content);
+        };
+    </script>
 }
 
 

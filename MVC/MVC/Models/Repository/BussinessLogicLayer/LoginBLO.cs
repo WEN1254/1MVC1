@@ -70,13 +70,14 @@ namespace MVC.Models.Repository.BussinessLogicLayer
         {
             List<GetCustomerOutput> result;
 
-            var queryresult = _LoginDAO.Login_GetCustomer(Input.Account);
+            var queryresult = _LoginDAO.Login_GetCustomer(Input.LoginUser);
 
 
             result = queryresult.Select(x => new GetCustomerOutput
             {
-                Email = x.Email,
                 CustomerName = x.CustomerName,
+                Password=x.Password,
+                Email = x.Email,
                 Phone=x.Phone,
                 BirthDay=x.Birthday
             }).ToList();

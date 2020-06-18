@@ -28,14 +28,13 @@
                     if (response.StatusCode == '1') {
                         window.location.href = '/Home/Index';
                     }
-                    else {
+                    else if (response.StatusCode == '2'){
                         alert("此信箱已重複");
-
-
                     }
                 }
             });
         }
-    }
+    },
+     
 }
 )

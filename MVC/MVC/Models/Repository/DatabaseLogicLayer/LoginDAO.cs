@@ -80,7 +80,7 @@ namespace MVC.Models.Repository.DatabaseLogicLayer
         }
         public IEnumerable<Customer> Login_GetCustomer(string Email)
         {
-            string Sqlcommand = @" SELECT * from Customers Where Email=@Email";
+            string Sqlcommand = @" SELECT * from Customers Where Email=@CustomerEmail";
             IEnumerable<Customer> result;
             using (SqlConnection conn = new SqlConnection(SQLConnectionStr))
             {

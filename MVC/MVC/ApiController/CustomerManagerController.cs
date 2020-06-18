@@ -36,14 +36,7 @@ namespace MVC.ApiControllers
             var CheckAccount = _LoginBLO.Login_CheckAccount(input);
 
             OutApiModels error = new OutApiModels(APIStatuCode.Fail, CheckAccount, string.Empty);
-
             OutApiModels errorPassword = new OutApiModels(APIStatuCode.Error, CheckAccount, string.Empty);
-
-
-
-
-
-
             if (CheckAccount == null)
             {
                 return error;
@@ -82,30 +75,13 @@ namespace MVC.ApiControllers
                     return result;
                 }
             }
-
-            //var password = FormsAuthentication.HashPasswordForStoringInConfigFile(pwd, "SHA1");
-
-
-
-
-
-
-            //去問資料庫有沒有使用者 Account存不存在 -> 沒有下面就不用做了
-
-            ///假設有
-
-            //去問密碼對不對
-            ///假設對
-
-            //清除現有Session
-            
         }
 
         [HttpPost]
         public OutApiModels Register([FromBody] CustomerRegister_Inputmodel input)
         {
                 var queryresult = _CustomerBLO.Register(input);
-                OutApiModels error = new OutApiModels(APIStatuCode.Fail, queryresult,"456789");
+                OutApiModels error = new OutApiModels(APIStatuCode.Fail, queryresult, "FAILS");
                 OutApiModels success = new OutApiModels(APIStatuCode.OK, queryresult, string.Empty);
 
 
@@ -124,6 +100,24 @@ namespace MVC.ApiControllers
         public OutApiModels GetCustomer([FromBody] GetCustomerInput input)
         {
             var queryresult = _LoginBLO.Login_GetCustomer(input);
+            OutApiModels error = new OutApiModels(APIStatuCode.Fail, queryresult, "FAILS");
+            OutApiModels success = new OutApiModels(APIStatuCode.OK, queryresult, string.Empty);
+
+
+
+            if (queryresult == null)
+            {
+                return error;
+            }
+            else
+            {
+                return success;
+            }
+
+        }
+        public OutApiModels Replace([FromBody] CustomerReplaceInputModel input)
+        {
+            var queryresult = _CustomerBLO.Replace(input);
             OutApiModels error = new OutApiModels(APIStatuCode.Fail, queryresult, "FAILS");
             OutApiModels success = new OutApiModels(APIStatuCode.OK, queryresult, string.Empty);
 

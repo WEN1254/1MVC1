@@ -114,8 +114,7 @@
             </li>
         </ul>
         <div class="nav_icon" id="UserType">
-            <a v-on:click="UserTypeMethod"><i class="fas fa-user"></i></a>
-            <a href="~/User/UserPage" class="search"><i class="fas fa-search"></i></a>
+            <a id="loginBtn"><i class="fas fa-user"></i></a> @*觸發按鈕*@
             <button id="btn" for="check" onclick="shop()">
                 <i class="fas fa-shopping-cart"></i>
             </button>
@@ -157,14 +156,19 @@
                 </button>
 
                 <div class="account">
-                    <input class="mx-auto" type="text" placeholder="請輸入電子信箱" v-model="RegisterEmail">
-                    <input type="password" class="mx-auto" placeholder="請輸入8-14碼密碼" v-model="RegisterPassword">
-                    <input class="mx-auto" type="tel" placeholder="請輸入電話號碼" v-model="RegisterPhone">
-                    <input class="mx-auto" type="text" placeholder="姓名" v-model="RegisterCustomerName">
-                    <input class="mx-auto"type="date" placeholder="請選擇生日日期" v-model="RegisterBirthday">
+                    <input class="mx-auto" type="text" placeholder="請輸入電子信箱" v-model="RegisterEmail" id="RegisterEmail">
+                    
+                    <input type="password" class="mx-auto" placeholder="請輸入8-14碼密碼" v-model="RegisterPassword" id="RegisterPassword">
+                    
+                    
+                    <input class="mx-auto" type="tel" placeholder="請輸入電話號碼" v-model="RegisterPhone" id="RegisterPhone">
+                    
+                    <input class="mx-auto" type="text" placeholder="姓名" v-model="RegisterCustomerName" id="RegisterCustomerName">
+                    
+                    <input class="mx-auto" type="date" placeholder="請選擇生日日期" v-model="RegisterBirthday">
                 </div>
 
-                <button class="login" type="submit" v-on:click="Register">註冊</button>
+                <button class="login" type="submit" v-on:click="Register"aria-label="Close"  data-toggle="modal" data-target="#LoginModel">註冊</button>
                 @*<div class="linear">
                                 <span style="white-space:pre"></span><span class="line"></span>
                                 <span style="white-space:pre"></span><span class="txt">或</span>
@@ -202,7 +206,7 @@
                     <i class="col-4 fab fa-google-plus"></i>
                 </div>
                 <div class="sign_up">
-                    <p>沒有帳號嗎?<a data-dismiss="modal" aria-label="Close" href="" data-toggle="modal" data-target="#RegisterModel">註冊</a></p>
+                    <p>沒有帳號嗎?<a data-dismiss="modal" aria-label="Close"  data-toggle="modal" data-target="#RegisterModel">註冊</a></p>
                 </div>
             </div>
         </div>

@@ -14,8 +14,10 @@
 i {
     color: #bbb;
     font-size: 25px;
+    
     transition: .3s;
 }
+    
 
     i:hover {
         color: #fff;

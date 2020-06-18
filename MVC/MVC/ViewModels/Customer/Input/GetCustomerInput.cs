@@ -7,6 +7,7 @@ namespace MVC.ViewModels.Customer.Input
 {
     public class GetCustomerInput
     {
-        public string Account { get; set; }
+        
+        public string LoginUser { get; set; }
     }
 }

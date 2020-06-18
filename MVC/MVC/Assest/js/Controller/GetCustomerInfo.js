@@ -1,11 +1,14 @@
 ﻿var CustomerInfo = new Vue({
     el: '#UserData',
     data: {
-        isBusy: true,
-        UserData: [],
+        UserData: [
+            {
+                Email: ''
+            }
+        ],
+        tabIndex: 0,
     },
     created: function () {
-        console.log("LoginUser");
         let UserType = {
             LoginUser: localStorage.getItem("LoginUser")
         }
@@ -15,14 +18,15 @@
             type: 'POST',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            data: JSON.stringify(data),
+            data: JSON.stringify(UserType),
             async: true,
             success: function (response) {
-                console.log(response);
+                
                 if (response.StatusCode == '1') {
-                    console.log(UserType);
+                   
                     GetResponse(response.Result);
-                    BusyChange();
+                    
+                    
                 }
                 else {
                     console.log(UserType);
@@ -31,10 +35,44 @@
         });
 
         function GetResponse(input) {
-            this.CustomerInfo.ProfileList = input;
+            console.log(input);
+            this.CustomerInfo.UserData = input;
+            
+            
         }
-        function BusyChange() {
-            this.CustomerInfo.isBusy = !this.CustomerInfo.isBusy;
-        }
+
+
     },
+    methods: {
+        Replace: function () {
+            let data = {
+                ReplaceEmail: this.UserData[0].Email,
+                ReplaceCustomerName:this.UserData[0].CustomerName,
+                ReplaceBirthDay : this.UserData[0].BirthDay,
+                ReplacePhone: this.UserData[0].Phone,
+                ReplacePassword: this.UserData[0].Password
+            }
+            console.log(data);
+            debugger;
+            $.ajax({
+                url: '/api/CustomerManager/Replace',
+                type: 'POST',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(data),
+                success: function (response) {
+                    console.log(response);
+                    swal({
+                        title: "Success!",
+                        text: "Your data has been uploaded",
+                        icon: "success",
+                        confirmButtontext: "I know!",
+                        showCancelButton: true,
+                        closeOnConfirm: false
+                    })
+                }
+            });
+        }
+    }
+        
 });

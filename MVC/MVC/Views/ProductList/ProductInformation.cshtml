@@ -155,9 +155,10 @@
 @section endJS{
 
     <script type="text/javascript">
-
-
-
-
+        let change = () => {
+            let oSpan = document.querySelector("h2");
+            let content = document.getElementById("wavycontent").innerText;
+            oSpan.setAttribute("data-before", content);
+        };
     </script>
 }

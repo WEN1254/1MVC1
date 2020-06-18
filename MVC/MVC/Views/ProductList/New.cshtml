@@ -7,7 +7,7 @@
         <div class="wavy">
             <h2 id="wavycontent">New</h2>
         </div>
-        
+
         <div class="storeby">
             <input type="checkbox" id="check_order">
             <span><button for="check_order" onclick="match()">SORT BY BEST MATCH</button></span>
@@ -29,32 +29,32 @@
     <div class="product_list row">
         @foreach (var item in Model)
         {
-        <div class="col-6 col-md-4 col-xl-3 product_only ">
-            <a href="~/ProductList/ProductInformation/@item.ProductSpecificationID" class="product_a">
-                <div class="card">
-                    <div class="img">
-                        <img src="~/Assest/img/ProductImg/@Html.DisplayFor(modelItem => item.Image)"
-                             alt="圖片說明" class="card-img-top">
+            <div class="col-6 col-md-4 col-xl-3 product_only ">
+                <a href="~/ProductList/ProductInformation/@item.ProductSpecificationID" class="product_a">
+                    <div class="card">
+                        <div class="img">
+                            <img src="~/Assest/img/ProductImg/@Html.DisplayFor(modelItem => item.Image)"
+                                 alt="圖片說明" class="card-img-top">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-title">
+                                <strong>
+                                    @Html.DisplayFor(modelItem => item.ProductName)
+                                </strong>
+                            </p>
+                            <p class="card-text"> $@Html.DisplayFor(modelItem => item.Price)</p>
+
+                            <p> @Html.DisplayFor(modelItem => item.Quantity)  Left</p>
+                            <p>
+                                <a onclick="AddToCart(' @Html.DisplayFor(modelItem => item.ProductSpecificationID)')"
+                                   class="btn btn-primary" role="button" id="AddToCart">
+                                    Add To Cart
+                                </a>
+                            </p>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <p class="card-title">
-                            <strong>
-                                @Html.DisplayFor(modelItem => item.ProductName)
-                            </strong>
-                        </p>
-                        <p class="card-text"> $@Html.DisplayFor(modelItem => item.Price)</p>
-       
-                        <p> @Html.DisplayFor(modelItem => item.Quantity)  Left</p>
-                        <p>
-                            <a onclick="AddToCart(' @Html.DisplayFor(modelItem => item.ProductSpecificationID)')" 
-                               class="btn btn-primary" role="button" id="AddToCart">
-                                Add To Cart
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
         }
 
 
@@ -68,7 +68,6 @@
 
     <link href="~/Assest/css/ProductList.css" rel="stylesheet" />
     <style type="text/css">
-        
     </style>
 }
 @section endJS{
@@ -80,5 +79,12 @@
 
 
 
+    </script>
+    <script type="text/javascript">
+        let change = () => {
+            let oSpan = document.querySelector("h2");
+            let content = document.getElementById("wavycontent").innerText;
+            oSpan.setAttribute("data-before", content);
+        };
     </script>
 }
