@@ -40,7 +40,7 @@ namespace MVC.Controllers
                     db.SaveChanges();
 
                 }
-                return Content("訂購");
+                //return Content("訂購");
             }
             return View();
         }
