@@ -53,44 +53,48 @@
         {
             @Html.AntiForgeryToken()
             <div class="form-horizontal">
-                <h4>收貨人資訊</h4>
-                <hr />
-                <div class="form-group">
-                    @Html.LabelFor(model => model.RecieverName, htmlAttributes: new { @class = "control-label col-12" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.RecieverName, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.RecieverName, "", new { @class = "text-danger" })
+                <div class="omantitle">
+                    <h4>收貨人資訊</h4>
+                    <hr />
+                </div>
+                <div class="omanform">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RecieverName, htmlAttributes: new { @class = "control-label col-12" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.RecieverName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.RecieverName, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.RecieverPhone, htmlAttributes: new { @class = "control-label col-12" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.RecieverPhone, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.RecieverPhone, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RecieverPhone, htmlAttributes: new { @class = "control-label col-12" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.RecieverPhone, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.RecieverPhone, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.RecieverAddress, htmlAttributes: new { @class = "control-label col-12" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.RecieverAddress, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.RecieverAddress, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RecieverAddress, htmlAttributes: new { @class = "control-label col-12" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.RecieverAddress, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.RecieverAddress, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-10">
-                    <label>選擇付款方式</label>
-                    <br />
-                    <button type="button" class="buybtn btn btn-outline-success" id="local" onclick="orderChange()">貨到付款</button>
+                    <div class="col-md-10">
+                        <label>選擇付款方式</label>
+                        <br />
+                        <button type="button" class="buybtn btn btn-outline-success" id="local" onclick="orderChange()">貨到付款</button>
 
-                    <!-- Button trigger modal -->
-                    <button type="button" class="buybtn btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" onclick="orderChange2()" id="local2">
-                        信用卡
-                    </button>
-                </div>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="buybtn btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" onclick="orderChange2()" id="local2">
+                            信用卡
+                        </button>
+                    </div>
 
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="確定購買" class="btn btn-default btn-outline-dark" />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="確定購買" class="btn btn-default btn-outline-dark" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -367,9 +371,11 @@
             margin: 0;
             list-style: none;
         }
-        .ordercontent{
-            margin:50px 50px ;
+
+        .ordercontent {
+            margin: 50px 50px;
         }
+
         .pic {
             width: 100px;
         }
@@ -387,7 +393,7 @@
         }
 
         #order_change form {
-            background-color: #dee2e6;
+           
             margin-bottom: 100px;
             border: 1px solid #dee2e6;
         }
@@ -396,6 +402,16 @@
             max-width: 750px;
         }
 
+        .form-horizontal .omantitle {
+            background-color: #dee2e6;
+            padding: 40px 40px 0;
+        }
+        .form-horizontal .omanform {
+            background-color: #F2F2F2;
+            padding: 40px 40px ;
+            margin-top:-20px;
+        }
+        /* F2F2F2*/
         .form-horizontal, .form-horizontal h4, .form-horizontal input {
             font-weight: 700;
         }
@@ -406,7 +422,7 @@
             margin: 0 20px 20px;
         }
 
-        form {
+        .modal-dialog form {
             padding: 40px;
             box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
         }
