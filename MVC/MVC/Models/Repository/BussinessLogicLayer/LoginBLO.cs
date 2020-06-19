@@ -85,6 +85,22 @@ namespace MVC.Models.Repository.BussinessLogicLayer
             
             
         }
+        public List<GetCustomerOutput> Login_GetCustomer(GetCustomerInput Input)
+        {
+            List<GetCustomerOutput> result;
+            var queryresult = _LoginDAO.Login_GetCustomer(Input.LoginUser);
+
+            result = queryresult.Select(x => new GetCustomerOutput
+            {
+                Email = x.Email,
+                CustomerName = x.CustomerName,
+                Phone = x.Phone,
+                BirthDay = x.Birthday
+            }).ToList();
+            return result;
+
+
+        }
 
     }
 }

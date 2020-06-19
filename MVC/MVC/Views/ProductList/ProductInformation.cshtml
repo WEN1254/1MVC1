@@ -9,22 +9,25 @@
         <div class="product col-md-5 col-sm-12">
             <h2 class="pt-5">@Model.First().Product.ProductName</h2>
             <h3>$@Model.First().Price</h3>
-            @foreach (var item in Model)
-            {
-                @*<p>@item.Colour</p>*@
-                <li>@Html.ActionLink(item.Colour, "ProductInformation", new { id = item.ProductSpecificationID })</li>}
-            @*<div class="color_btn pt-0">
-                    <a href="">
-                        <div></div>
-                    </a>
-                    <a href="">
-                        <div></div>
-                    </a>
-                </div>*@
-
+            <br />
+            <p>COLOR</p>
+            <br />
+            <div class="color_cicle row justify-content-start ml-0">
+                @foreach (var item in Model)
+                {
+                    @*<p>@item.Colour</p>*@
+                    @*<li>@Html.ActionLink(item.Colour, "ProductInformation", new { id = item.ProductSpecificationID })</li>*@
+                    <div class="color_btn pt-0">
+                        <a href="~/ProductList/ProductInformation/@item.ProductSpecificationID" class="d-flex">
+                            <img src="~/Assest/img/ColourCicle/@Html.DisplayFor(modelItem => item.ColourImg)"
+                                 alt="圖片說明" class="card-img-top ">
+                        </a>
+                    </div>
+                }
+            </div>
             <div class="row buy">
                 <button class="buynumber col-2">1</button>
-                <button class="buybutton col-5"onclick="AddToCart(' @Model.First().ProductSpecificationID')" >ADD TO CART</button>
+                <button class="buybutton col-5" onclick="AddToCart(' @Model.First().ProductSpecificationID')">ADD TO CART</button>
             </div>
         </div>
     </div>
@@ -145,10 +148,7 @@
 
 
 
-
-
     <link href="~/Assest/css/ProductInformation.css" rel="stylesheet" />
-
     <style type="text/css">
     </style>
 }

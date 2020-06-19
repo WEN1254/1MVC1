@@ -8,7 +8,7 @@ namespace MVC.Models.Database
     public partial class _1MVC1Model : DbContext
     {
         public _1MVC1Model()
-            : base("name=mvcContext")
+            : base("name=MVCContext")
         {
         }
 
@@ -19,6 +19,7 @@ namespace MVC.Models.Database
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<MainClassification> MainClassifications { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductSpecification> ProductSpecifications { get; set; }
@@ -52,9 +53,13 @@ namespace MVC.Models.Database
                 .WithRequired(e => e.MainClassification)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.Orders)
-                .WithRequired(e => e.Product)
+            modelBuilder.Entity<OrderDetail>()
+                .Property(e => e.Price)
+                .HasPrecision(18, 0);
+
+            modelBuilder.Entity<Order>()
+                .HasMany(e => e.OrderDetails)
+                .WithRequired(e => e.Order)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
@@ -67,7 +72,11 @@ namespace MVC.Models.Database
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<ProductSpecification>()
-                .HasMany(e => e.Orders)
+                .Property(e => e.ColourImg)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ProductSpecification>()
+                .HasMany(e => e.OrderDetails)
                 .WithRequired(e => e.ProductSpecification)
                 .WillCascadeOnDelete(false);
         }

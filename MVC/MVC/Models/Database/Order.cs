@@ -8,28 +8,30 @@ namespace MVC.Models.Database
 
     public partial class Order
     {
-        public int OrderID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Order()
+        {
+            OrderDetails = new HashSet<OrderDetail>();
+        }
 
-        public int ProductID { get; set; }
+        public int OrderID { get; set; }
 
         public int CustomerID { get; set; }
 
         [Required]
-        [StringLength(20)]
-        public string BuyAmount { get; set; }
+        [StringLength(10)]
+        public string RecieverName { get; set; }
 
         [Required]
-        public string BuyPrice { get; set; }
+        public string RecieverPhone { get; set; }
 
-        public int ProductSpecificationID { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime OrderIShelveDate { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string RecieverAddress { get; set; }
 
         public virtual Customer Customer { get; set; }
 
-        public virtual Product Product { get; set; }
-
-        public virtual ProductSpecification ProductSpecification { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }
