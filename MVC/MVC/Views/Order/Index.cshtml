@@ -6,99 +6,97 @@
 
 
 
-<h3>結帳</h3>
+@*<h3>結帳</h3>*@
 
 
+<div class="ordercontent">
+    <div class="col-12">
 
-<div class="col-12">
-
-    <table class="table table-striped">
-        <thead class="thead-light">
-            <tr>
-                <th class="pic" scope="col">圖片</th>
-                <th scope="col">品名</th>
-                <th scope="col">單價</th>
-                <th scope="col">數量</th>
-                <th scope="col">總計</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var cartitem in currentCart)
-            {
+        <table class="table table-striped">
+            <thead class="thead-light">
                 <tr>
-                    <th class="pic" scope="row">
-                        <img src="~/Assest/img/ProductImg/@cartitem.Image" alt="">
-                    </th>
-                    <td>@cartitem.Name</td>
-                    <td>$@cartitem.Price 元</td>
-                    <td>@cartitem.Quantity</td>
-                    <td>$@cartitem.Amount 元</td>
+                    <th class="pic" scope="col">圖片</th>
+                    <th scope="col">品名</th>
+                    <th scope="col">單價</th>
+                    <th scope="col">數量</th>
+                    <th scope="col">總計</th>
                 </tr>
-            }
-            <tr>
-                <th scope="row">總價錢</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>@String.Format("共{0}元 ", currentCart.TotalAmount)</td>
-            </tr>
+            </thead>
+            <tbody>
+                @foreach (var cartitem in currentCart)
+                {
+                    <tr>
+                        <th class="pic" scope="row">
+                            <img src="~/Assest/img/ProductImg/@cartitem.Image" alt="">
+                        </th>
+                        <td>@cartitem.Name</td>
+                        <td>$@cartitem.Price 元</td>
+                        <td>@cartitem.Quantity</td>
+                        <td>$@cartitem.Amount 元</td>
+                    </tr>
+                }
+                <tr>
+                    <th scope="row">總價錢</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>@String.Format("共{0}元 ", currentCart.TotalAmount)</td>
+                </tr>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-</div>
+    </div>
+    <div class="col-12" id="order_change">
 
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <h4>收貨人資訊</h4>
+                <hr />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RecieverName, htmlAttributes: new { @class = "control-label col-12" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.RecieverName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.RecieverName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RecieverPhone, htmlAttributes: new { @class = "control-label col-12" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.RecieverPhone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.RecieverPhone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RecieverAddress, htmlAttributes: new { @class = "control-label col-12" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.RecieverAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.RecieverAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-<div class="col-12" id="order_change">
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        <div class="form-horizontal">
-            <h4>收貨人資訊</h4>
-            <hr />
-            <div class="form-group">
-                @Html.LabelFor(model => model.RecieverName, htmlAttributes: new { @class = "control-label col-12" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.RecieverName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RecieverName, "", new { @class = "text-danger" })
+                    <label>選擇付款方式</label>
+                    <br />
+                    <button type="button" class="buybtn btn btn-outline-success" id="local" onclick="orderChange()">貨到付款</button>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="buybtn btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" onclick="orderChange2()" id="local2">
+                        信用卡
+                    </button>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="確定購買" class="btn btn-default btn-outline-dark" />
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.RecieverPhone, htmlAttributes: new { @class = "control-label col-12" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.RecieverPhone, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RecieverPhone, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.RecieverAddress, htmlAttributes: new { @class = "control-label col-12" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.RecieverAddress, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RecieverAddress, "", new { @class = "text-danger" })
-                </div>
-            </div>
+        }
 
-            <div class="col-md-10">
-                <label>選擇付款方式</label>
-                <br />
-                <button type="button" class="buybtn btn btn-outline-success" id="local" onclick="orderChange()">貨到付款</button>
-
-                <!-- Button trigger modal -->
-                <button type="button" class="buybtn btn btn-outline-success" data-toggle="modal" data-target="#exampleModal">
-                    信用卡
-                </button>
-            </div>
-
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="確定購買" class="btn btn-default btn-outline-dark" />
-                </div>
-            </div>
-        </div>
-    }
-
+    </div>
 </div>
 
 <!-- Modal -->
@@ -325,23 +323,34 @@
 
             if (count % 2 == 0) {
                 var PayLocal = document.getElementById("local");
-                PayLocal.style.background = '#17a2b8';
+                PayLocal.style.background = '#28a745';
                 PayLocal.style.color = 'white';
                 count++;
             }
             else {
-
                 var PayLocal = document.getElementById("local");
                 PayLocal.style.background = 'white';
-                PayLocal.style.color = '#17a2b8';
+                PayLocal.style.color = '#28a745';
                 count++;
 
             }
-
-
-
         }
+        function orderChange2() {
 
+            if (count % 2 == 0) {
+                var PayLocal2 = document.getElementById("local2");
+                PayLocal2.style.background = '#28a745';
+                PayLocal2.style.color = 'white';
+                count++;
+            }
+            else {
+                var PayLocal2 = document.getElementById("local2");
+                PayLocal2.style.background = 'white';
+                PayLocal2.style.color = '#28a745';
+                count++;
+
+            }
+        }
 
     </script>
 
@@ -358,7 +367,9 @@
             margin: 0;
             list-style: none;
         }
-
+        .ordercontent{
+            margin:50px 50px ;
+        }
         .pic {
             width: 100px;
         }
@@ -384,13 +395,15 @@
         .container {
             max-width: 750px;
         }
-        .form-horizontal, .form-horizontal h4, .form-horizontal input{
+
+        .form-horizontal, .form-horizontal h4, .form-horizontal input {
             font-weight: 700;
         }
+
         .buybtn {
             font-weight: 700;
             width: 200px;
-            margin: 0 20px 20px ;
+            margin: 0 20px 20px;
         }
 
         form {
